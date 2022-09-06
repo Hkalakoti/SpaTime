@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="206" height="227" viewBox="0 0 206 227">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_48" data-name="Path 48" d="M-690.223,539.167a113.5,113.5,0,0,1-113.5-113.5,113.5,113.5,0,0,1,113.5-113.5Z" transform="translate(803.723 -312.167)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_38" data-name="Group 38" transform="translate(846.062 -312.167)">
+    <text id="Gift" transform="translate(-846.062 458.052)" fill="#fff" font-size="130" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Gift</tspan></text>
+    <path id="Path_47" data-name="Path 47" d="M-690.223,539.167a113.5,113.5,0,0,1-113.5-113.5,113.5,113.5,0,0,1,113.5-113.5Z" transform="translate(4.601 0)" fill="#fff"/>
+    <g id="Group_37" data-name="Group 37" transform="translate(-799.122 312.167)">
+      <g id="Group_36" data-name="Group 36" clip-path="url(#clip-path)">
+        <text id="Gift-2" data-name="Gift" transform="translate(-46.94 145.885)" fill="#a0ab7a" font-size="130" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Gift</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

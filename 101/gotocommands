@@ -1,0 +1,8 @@
+--image upload--    
+            $dataArray['image'] = $data['users'][0]['profile_pic'] ? getenv("IMAGES")."player_images/".$data['users'][0]['profile_pic'] : null;  
+
+--Auth group--
+        Route::group(['middleware' => ['auth']], function () {
+    Route::get('/admin', 'AdminController@getHome');
+    Route::get('/valider/{devis}', 'AdminController@destroy');
+});
