@@ -17,12 +17,11 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->morphs('tokenable');
             $table->string('name');
-            $table->string('token', 64)->unique();
             $table->text('abilities')->nullable();
-            $table->boolean('IsAdmin')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('path');
             $table->rememberToken();
             $table->timestamps();
         });

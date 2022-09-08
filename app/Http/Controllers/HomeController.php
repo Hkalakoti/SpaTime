@@ -97,7 +97,6 @@ class HomeController extends Controller
 
             return redirect()->back();
         }
-
         //Admin banner manage functions--end
 
         Public function home(Request $request){
