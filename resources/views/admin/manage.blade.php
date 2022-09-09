@@ -16,7 +16,6 @@
       <th scope="col">action</th>
       <th scope="col">action</th>
     </tr>
-
     <tr>
     @foreach ($data as $i => $row)
        <!-- loop to enter data recursively into the table rows-->
@@ -27,9 +26,9 @@
                          style="height: 100px; width: 150px;"> </td>
            <td> 
             <button class="{{ $row->status ? 'btn btn-success active-button' : 'btn btn-danger active-button' }}" role="button" data-onstyle="activated" data-offstyle="deactivated" data-bs-toggle="button">{{ $row->status ? 'Active' : 'Inactive' }}</a></button>
-           <td>{{ $row->date }}</td>
+            <td>{{ $row->date }}</td>
            <td> <button type="button" role="button" class="btn btn-warning"> <a href="{{route('edit',['id' => $row->id])}}" style="text-decoration: none; color: #ffffff;font-weight: 300;"> Edit </a></button> </td>
-           <td>     <button type="button" role="button" class="btn btn-danger"> <a href="{{route('destroy',['id' => $row->id])}}" style="text-decoration: none; color: #ffffff;"> Delete </a> </button> </td> 
+           <td> <button type="button" role="button" class="btn btn-danger"> <a href="{{route('destroy',['id' => $row->id])}}" style="text-decoration: none; color: #ffffff;"> Delete </a> </button> </td> 
        </tr>
        @endforeach
 </table>

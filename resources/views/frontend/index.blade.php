@@ -48,7 +48,7 @@
 <div class="padding-left-right">
 <div class="container-fluid">
 <div class="header-now-top">	
-<a href="index.html" class="spa-time"><img src="images/spa-time-new.svg" alt="SPA_TIME" class="img-color-white"/><img src="images/spa-time-new-mobile.png" class="img-color-black" alt="SPA_TIME"/></a>	
+<a href="{{route('index')}}" class="spa-time"><img src="images/spa-time-new.svg" alt="SPA_TIME" class="img-color-white"/><img src="images/spa-time-new-mobile.png" class="img-color-black" alt="SPA_TIME"/></a>	
 			<div class="wsmenucontainer clearfix">
 				<div class="overlapblackbg"></div>
 				<div class="wsmobileheader clearfix">
@@ -57,8 +57,8 @@
 		<div class="wsmain">
 			 <nav class="wsmenu clearfix"> 
 				<ul class="mobile-sub wsmenu-list">
-					<a href="index.html" class="spa-time spa-time-mobile-logo"><img src="images/spa-time-new.svg" alt="SPA_TIME"/></a>
-					<li><a href="index.html">Home</a></li>
+					<a href="{{route('index')}}" class="spa-time spa-time-mobile-logo"><img src="images/spa-time-new.svg" alt="SPA_TIME"/></a>
+					<li><a href="{{route('index')}}">Home</a></li>
                     <li><a href="services-listing.html" class="main-link">Our Services</a>  
 		                  <!--<ul class="wsmenu-submenu largemenu">
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Massage</span></a></li>	 
@@ -81,10 +81,10 @@
 		            <li><a href="contact-us.html" class="main-link">Contact Us</a></li>
 					<li><a href="book-now.html" class="main-link main-link-book-now">Book Now</a></li>
 		            <!--<li><a title="ع" href="javascript:void(0)" class="eng-arabic">ع</a></li>-->
-					<li class="mobile-link-hide link-top-desktop"><a href="{{route('login')}}" class="user-link user-link-mobile"><img src="images/icons/user.svg" class="img-fluid login-user" alt="Login"></a></li>
-					<li class="mobile-link-hide link-top-mobile"><a href="{{route('login')}}" class="user-link user-link-mobile"><img src="images/user-mobile.svg" class="img-fluid login-user" alt="Login"></a></li>
-		            <li class="mobile-link-hide link-top-desktop"><a href="javascript:void(0);" class="main-link cart-link cart-link-mobile"><img src="images/basket.png" class="img-fluid basket-img" alt="Basket"></a></li>
-					<li class="mobile-link-hide link-top-mobile"><a href="javascript:void(0);" class="main-link cart-link cart-link-mobile"><img src="images/basket-mobile.png" class="img-fluid basket-img" alt="Basket"></a>	
+					<li class="mobile-link-hide link-top-desktop"><a href="{{route('login')}}" class="user-link user-link-mobile"><img src="{{asset('images/icons/user.svg')}}" class="img-fluid login-user" alt="Login"></a></li>
+					<li class="mobile-link-hide link-top-mobile"><a href="{{route('login')}}" class="user-link user-link-mobile"><img src="{{asset('images/user-mobile.svg')}}" class="img-fluid login-user" alt="Login"></a></li>
+		            <li class="mobile-link-hide link-top-desktop"><a href="javascript:void(0);" class="main-link cart-link cart-link-mobile"><img src="{{asset('images/basket.png')}}" class="img-fluid basket-img" alt="Basket"></a></li>
+					<li class="mobile-link-hide link-top-mobile"><a href="javascript:void(0);" class="main-link cart-link cart-link-mobile"><img src="{{asset('images/basket-mobile.png')}}" class="img-fluid basket-img" alt="Basket"></a>	
 					<ul class="wsmenu-submenu wsmenu-cart-booking">
 		               <li><a href="my-cart.html">Spa Booking</a></li>
 					   <li><a href="shopping-cart.html">Product Cart</a></li>
@@ -125,9 +125,9 @@
 					<div class="top-login top-login-mobile">
 					<ul>	
 					<li><a href="login.html"><div class="favourite-main">
-                        <span class="favourite-icon"><img src="images/icons/user.svg" alt="Login" class="img-fluid"></span>
+                        <span class="favourite-icon"><img src="{{asset('images/icons/user.svg')}}" alt="Login" class="img-fluid"></span>
 	                </div></a></li>
-	                <li><a href="javascript:void(0)"><div class="favourite-main cart-link"><span class="favourite-icon"><img src="images/basket.png" class="img-fluid basket-img" alt="Basket"></span>
+	                <li><a href="javascript:void(0)"><div class="favourite-main cart-link"><span class="favourite-icon"><img src="{{asset('images/basket.png')}}" class="img-fluid basket-img" alt="Basket"></span>
 	                </div></a></li>
 			        </ul>
 				</div>	
@@ -143,7 +143,7 @@
 <section class="banner-main">
 	<div class="bxslider bxslider-mobile-hide">
 	<div>
-	<img src="slideshow/slide1.jpg" class="img-fluid" alt="">
+	<img src="{{asset('slideshow/slide1.jpg')}}" class="img-fluid" alt="">
 	<div class="banner-text">	
 	<h3>Time For a Journey</h3>
 	<p>Join our luxurious sanctuaries of health and wellness. Indulge in our spirit awakening rituals catered for your mind, body and soul. A serenity like no other. </p>

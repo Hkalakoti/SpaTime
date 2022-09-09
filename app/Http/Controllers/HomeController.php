@@ -94,7 +94,6 @@ class HomeController extends Controller
         Public function destroy($id){
 
             Banner::find($id)->delete();
-
             return redirect()->back();
         }
         //Admin banner manage functions--end

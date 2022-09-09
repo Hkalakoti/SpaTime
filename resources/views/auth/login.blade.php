@@ -5,7 +5,7 @@
 <div class="padding-left-right">	
 <div class="container-fluid">
 <ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
 <li class="breadcrumb-item active" aria-current="page">Login</li>
 </ol>	
 </div>
@@ -21,9 +21,7 @@
 </div>
 
 <div class="col-lg-6 col-md-12 col-sm-12">
-
 <div class="login-part">
-
 <div id="loginModel">
 	<span><img src="images/spa-time-new.svg" class="img-fluid"></span>
 	<h2 class="anim1">Login</h2>
@@ -32,7 +30,7 @@
     <form method="POST" action="{{ route('login') }}">
                         @csrf
 	<div class="form-group anim3 username-password">
-        <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Mobile / Email" value="{{ old('email') }}" required autocomplete="email" autofocus/>
+        <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Mobile / Email" value="{{ old('email') }}" autocomplete="email" autofocus/>
 
         @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -42,7 +40,7 @@
 
     </div>
 	<div class="form-group anim3 username-password">
-        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" required autocomplete="current-password"/>
+        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password"  autocomplete="current-password"/>
 
         @error('password')
                                     <span class="invalid-feedback" role="alert">

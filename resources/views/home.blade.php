@@ -8,16 +8,26 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
+                @if ('is_admin' == 1)
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
+                    <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged in admin!') }}
                 </div>
             </div>
+            @elseif ('is_admin == 0')
+            <div class="card-body">
+                    @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    {{ __('You are logged in admin!') }}
+                </div>
+                @endif
         </div>
     </div>
 </div>
@@ -25,3 +35,5 @@
 @include('layouts.sidebar')
 </body>
 @include('layouts.footer')
+
+

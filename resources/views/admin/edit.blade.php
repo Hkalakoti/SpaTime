@@ -45,7 +45,6 @@
     <label for="image" class="form-label">Upload:</label>
     <input class="form-control form-control-sm" name="image" id="image" style="padding: 10px 20px 10px 20px; height:100%;" type="file" accept="image/*" onchange="loadFile(event)" >
     </div>
-
     <!-- Status: -->
    <label for="formFileSm" class="form-label">Status</label> 
     <div class="form-check form-check-inline">

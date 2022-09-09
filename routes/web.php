@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('frontend.index');
-});
+})->name('index');
 
 Auth::routes();
 
@@ -35,5 +35,7 @@ Route::post('/adding','App\Http\Controllers\HomeController@add')->name('adding')
 Route::get('/banner/manage','App\Http\Controllers\HomeController@manage')->name('bannerManage');
 Route::post('/banner/update','App\Http\Controllers\HomeController@updateData')->name('updateData');
 Route::get('/banner/delete/{id}','App\Http\Controllers\HomeController@destroy')->name('destroy');
+
+Route::post('/signup','App\Http\Controllers\UserController@signup')->name('signup');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');

@@ -1,6 +1,18 @@
 @extends('frontend.layout')
 
 @section('content')
+
+<section class="breadcrumb-inner breadcrumb-inner-page">
+<div class="padding-left-right">	
+<div class="container-fluid">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item active" aria-current="page">Signup</li>
+</ol>	
+</div>
+</div>	
+</section>
+
 <section class="login-page details-page">
 <div class="padding-left-right">
 <div class="container-fluid">
@@ -20,7 +32,7 @@
 
 	<div class="reg-form">
 	<div class="form-group anim3">
-	<input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Full Name..." value="{{ old('name') }}" required autocomplete="name" autofocus />
+	<input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Full Name..." value="{{ old('name') }}"  autocomplete="name" autofocus />
     
     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -30,7 +42,7 @@
 
     </div>
 	<div class="form-group anim4">
-	<input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" placeholder="Mobile Number..." value="{{old('phone')}}"/>
+	<input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" placeholder="Mobile Number..." value="{{old('phone')}}"/> 
     @error('phone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -38,7 +50,7 @@
                                 @enderror
     </div>
 	<div class="form-group anim4">
-	<input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email Address..." value="{{ old('email') }}" required autocomplete="email"/>
+	<input name="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email Address..." value="{{ old('email') }}"  autocomplete="email"/>
 	
     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -47,9 +59,8 @@
                                 @enderror
     </div>	
 	<div class="form-group anim5">
-	<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="new-password"/>
+	<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password"  autocomplete="new-password"/>
 	
-
     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -58,7 +69,7 @@
 
     </div>
 	<div class="form-group anim5">
-	<input id="password-confirm" type="password" class="form-control" placeholder="Confirm password" name="password_confirmation" required autocomplete="new-password"/>
+	<input id="password-confirm" type="password" class="form-control" placeholder="Confirm password" name="password_confirmation"  autocomplete="new-password"/>
 	</div>	
 	<div class="form-group anim6 signup-btn"><button type="submit" class="button-line">Sign Up</button> 
     <p class="forgot-reg already-mem">
