@@ -6,3 +6,6 @@
     Route::get('/admin', 'AdminController@getHome');
     Route::get('/valider/{devis}', 'AdminController@destroy');
 });
+
+--status--
+        $result= Banner::table('banners')->where([$data['status'] => 1])-> get();

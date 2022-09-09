@@ -2,7 +2,7 @@
 <head>
 <meta charset="utf-8" />
 
-<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<link class="jsbin" href="{{asset('http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css')}}" rel="stylesheet" type="text/css"/>
 </head>
 @section('content')
 <div class="container">
@@ -48,11 +48,11 @@
     <!-- Status: -->
    <label for="formFileSm" class="form-label">Status</label> 
     <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="status" id="active" value="{{$data->status}}" {{ $data->status == 1 ? 'checked' : null }}> <!-- Ternary operator for status -->
+  <input class="form-check-input" type="radio" name="status" id="active" value="1" {{ $data->status == 1 ? 'checked' : null }}> <!-- Ternary operator for status -->
   <label class="form-check-label" for="status">Active</label>
   </div>
   <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inactive" name="status" value="{{$data->status}}" {{ $data->status == 0 ? 'checked' : null }}>
+  <input class="form-check-input" type="radio" id="inactive" name="status" value="0" {{ $data->status == 0 ? 'checked' : null }}>
   <label class="form-check-label" for="status">Inactive</label>
   </div>
  <br>

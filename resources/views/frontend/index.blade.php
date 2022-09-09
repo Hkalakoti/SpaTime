@@ -138,8 +138,7 @@
 	</div>
 	</div>	
 </header>	
-	
-<!---->
+	<!---->
 <section class="banner-main">
 	<div class="bxslider bxslider-mobile-hide">
 	<div>

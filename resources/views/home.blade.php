@@ -9,6 +9,13 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 @if ('is_admin' == 1)
+               <p>  it's working </p>
+               @else
+               <p>  it's not working </p>
+                @endif
+
+
+                @if ('is_admin' == 1)
                 <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
@@ -25,7 +32,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{ __('You are logged in admin!') }}
+                    {{ __('You are logged in user!') }}
                 </div>
                 @endif
         </div>

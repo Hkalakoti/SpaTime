@@ -29,7 +29,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = []; 
+        $data = Banner:: get();
+
+        return view('home',['data'=> $data]);
 
     }
 
@@ -57,13 +60,14 @@ class HomeController extends Controller
     {
          $data=[];
          $data= Banner:: get();
-         return view('admin.manage',['data'=>$data]);
+
+        return view('admin.manage',['data'=>$data]);
+        
     }
 
     public function edit(Request $request, $id) {
         
         $dataPacket = [];
-
         $dataPacket = Banner:: get(); 
         $dataPacket = Banner::where('id', $id)->first(); //send specific id entry from DB (first()-> takes a row from db)
 
@@ -88,13 +92,14 @@ class HomeController extends Controller
         $data =  Banner::where('id', $request->id)->update($dataPacket);
 
 
-       return redirect()->route('bannerManage');
+
+       return redirect()->route('bannerManage')->with('success','Record edited successfully!',array('timeout' => 3));
    }
 
         Public function destroy($id){
 
             Banner::find($id)->delete();
-            return redirect()->back();
+            return redirect()->back()->with('error','Record deleted successfully');
         }
         //Admin banner manage functions--end
 

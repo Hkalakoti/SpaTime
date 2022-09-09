@@ -4,6 +4,8 @@
 <div class="container">
     <div class="row">
     <div class="col-lg-12">
+@include('flash-messages')
+
 <table class="table" style="text-align: center !important ;">
   <caption> Banner list </caption>
   <thead>
@@ -24,8 +26,8 @@
            <td>{{ $row->name }}</td>
            <td>      <img src="{{ url('public/Image/'.$row->image) }}" 
                          style="height: 100px; width: 150px;"> </td>
-           <td> 
-            <button class="{{ $row->status ? 'btn btn-success active-button' : 'btn btn-danger active-button' }}" role="button" data-onstyle="activated" data-offstyle="deactivated" data-bs-toggle="button">{{ $row->status ? 'Active' : 'Inactive' }}</a></button>
+          <td> 
+            <button class="{{ $row->status ? 'btn btn-success active-button' : 'btn btn-danger active-button' }}" role="button" data-onstyle="activated" data-offstyle="deactivated" data-bs-toggle="button"> {{ $row->status ? 'Active' : 'Inactive' }} </a></button>
             <td>{{ $row->date }}</td>
            <td> <button type="button" role="button" class="btn btn-warning"> <a href="{{route('edit',['id' => $row->id])}}" style="text-decoration: none; color: #ffffff;font-weight: 300;"> Edit </a></button> </td>
            <td> <button type="button" role="button" class="btn btn-danger"> <a href="{{route('destroy',['id' => $row->id])}}" style="text-decoration: none; color: #ffffff;"> Delete </a> </button> </td> 
