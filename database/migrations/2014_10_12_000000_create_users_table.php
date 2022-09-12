@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->morphs('tokenable');
             $table->string('name');
+            $table->boolean('is_admin');
             $table->string('token', 64)->unique();
             $table->text('abilities')->nullable();
             $table->string('email')->unique();

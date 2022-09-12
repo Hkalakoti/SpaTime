@@ -14,15 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('frontend.index');
-// })->name('index');
+Route::get('/', 'App\Http\Controllers\HomeController@home')->name('index');
 
 Auth::routes();
 
-Route::get('/add', function () {
-    return view('layouts.add');
-})->name('add');
+Route::group(['middleware' => 'disable_back_btn'], function(){
+
+Route::get('/add', 'App\Http\Controllers\HomeController@bannerAdd')->name('bannerAdd');
 
 Route::get('/edit/{id}','App\Http\Controllers\HomeController@edit')->name('edit');
 
@@ -39,3 +37,5 @@ Route::get('/banner/delete/{id}','App\Http\Controllers\HomeController@destroy')-
 Route::post('/signup','App\Http\Controllers\UserController@signup')->name('signup');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
+
+});

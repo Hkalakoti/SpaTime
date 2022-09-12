@@ -8,15 +8,10 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
-                @if ('is_admin' == 1)
+                @if ($data->is_admin == 1)
                <p>  it's working </p>
-               @else
-               <p>  it's not working </p>
-                @endif
 
-
-                @if ('is_admin' == 1)
-                <div class="card-body">
+               <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -25,7 +20,7 @@
                     {{ __('You are logged in admin!') }}
                 </div>
             </div>
-            @elseif ('is_admin == 0')
+            @elseif ($data->is_admin == 0)
             <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">

@@ -138,14 +138,16 @@
 	</div>
 	</div>	
 </header>	
-	<!---->
-<section class="banner-main">
+	<!---->	
+	@if ( $data->status == 1)
+	<section class="banner-main">
 	<div class="bxslider bxslider-mobile-hide">
 	<div>
-	<img src="{{asset('slideshow/slide1.jpg')}}" class="img-fluid" alt="">
+	<img src="{{asset(url('public/Image/'.$data->image))}}" class="img-fluid" alt="">
 	<div class="banner-text">	
-	<h3>Time For a Journey</h3>
-	<p>Join our luxurious sanctuaries of health and wellness. Indulge in our spirit awakening rituals catered for your mind, body and soul. A serenity like no other. </p>
+	<h3> {{$data->name}} </h3>
+	<!-- <p> #Join our luxurious sanctuaries of health and wellness. Indulge in our spirit awakening rituals catered for your mind, body and soul. A serenity like no other. </p> -->
+	<p> {{$data->description}} </p>
 	<div class="banner-btns">	
 	<a href="services-listing.html" class="rituals-btn black-button">View Rituals</a>
 	<a href="gifts-voucher.html" class="gifts-btn black-button">Gift Vouchers</a>
@@ -153,6 +155,7 @@
 	</div>	
 	</div>
 	</div>		
+
 
 	<div class="top-banner-mobile-img">
 	<img src="slideshow/top-background-mobile.png" class="img-fluid" alt="">
@@ -166,6 +169,8 @@
 	</div>	
 	</div>
 </section>
+
+@endif
 
 <!--<section class="login-signup-section">
 <div class="container">	

@@ -29,14 +29,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = []; 
-        $data = Banner:: get();
+        $data = [];
+        $data = Auth::user();
 
-        return view('home',['data'=> $data]);
-
+        return view('home', ['data' => $data]);
     }
 
     //Admin banner manage functions
+
+    public function bannerAdd()
+    {
+
+        return view('layouts.add');
+    }
+
+
     public function add(Request $request)
     {
         $dataPacket = [];
@@ -45,72 +52,79 @@ class HomeController extends Controller
         $dataPacket['date'] = Carbon::now();
         $dataPacket['status'] = $request->status;
 
-        if($request->file('image')){
-            $file= $request->file('image');
-            $filename= date('YmdH').$file->getClientOriginalName();
-            $file-> move(public_path('public/Image'), $filename);
-            $dataPacket['image']= $filename;
+
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename = date('YmdH') . $file->getClientOriginalName();
+            $file->move(public_path('public/Image'), $filename);
+            $dataPacket['image'] = $filename;
         }
         $data = Banner::create($dataPacket);
 
-            return redirect()->route('bannerManage');                
+        return redirect()->route('bannerManage');
     }
-  
-    public function manage()
+
+    public function manage(Request $request)
     {
-         $data=[];
-         $data= Banner:: get();
+        $data = [];
+        $data = Banner::get();
 
-        return view('admin.manage',['data'=>$data]);
-        
+        //  Banner::whereIn('status', [$request->status])->update(['status' => '0']); //updates status iteratively
+
+
+        return view('admin.manage', ['data' => $data]);
     }
 
-    public function edit(Request $request, $id) {
-        
+    public function edit(Request $request, $id)
+    {
+
         $dataPacket = [];
-        $dataPacket = Banner:: get(); 
+        $dataPacket = Banner::get();
         $dataPacket = Banner::where('id', $id)->first(); //send specific id entry from DB (first()-> takes a row from db)
 
         return view('admin.edit', ['id' => $id, 'data' => $dataPacket]); //routes to edit.blade.php
     }
 
-   public function updateData(Request $request)
-   {
+    public function updateData(Request $request)
+    {
         $dataPacket = [];
         $dataPacket['name'] = $request->name;
         $dataPacket['description'] = $request->description;
         $dataPacket['status'] = $request->status;
 
         //img upload fn
+
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename = date('YmdH') . $file->getClientOriginalName();
+            $file->move(public_path('public/Image'), $filename);
+            $dataPacket['image'] = $filename;
+        }
         
-        if($request->file('image')){
-        $file= $request->file('image');
-        $filename= date('YmdH').$file->getClientOriginalName();
-        $file-> move(public_path('public/Image'), $filename);
-        $dataPacket['image']= $filename;
-    }
+        //updates status iteratively
+        Banner::where('status', 1)->update(['status' => '0']); 
+
         $data =  Banner::where('id', $request->id)->update($dataPacket);
 
 
 
-       return redirect()->route('bannerManage')->with('success','Record edited successfully!',array('timeout' => 3));
-   }
+        return redirect()->route('bannerManage')->with('success', 'Record edited successfully!', array('timeout' => 3));
+    }
 
-        Public function destroy($id){
+    public function destroy($id)
+    {
 
-            Banner::find($id)->delete();
-            return redirect()->back()->with('error','Record deleted successfully');
-        }
-        //Admin banner manage functions--end
+        Banner::find($id)->delete();
+        return redirect()->back()->with('error', 'Record deleted successfully');
+    }
+    //Admin banner manage functions--end
 
-        Public function home(Request $request){
+    public function home(Request $request)
+    {
 
         $data = [];
-        $data = Banner:: get(); 
-        $data = Banner::where('id', $request->id)->first();
+        $data = Banner::where('status', '=', 1)->first();
 
-            return view('frontend.index', ['id'=> $request->id, 'data' => $data]);
-
-}
-
+        return view('frontend.index', ['id' => $request->id, 'data' => $data]);
+    }
 }
