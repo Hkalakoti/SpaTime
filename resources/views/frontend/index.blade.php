@@ -69,7 +69,7 @@
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Bridal</span></a></li>
 		                 </ul>-->
 		            </li>
-					<li><a href="products-listing.html" class="main-link">Our Products</a>
+					<li><a href="{{route('category')}}" class="main-link">Our Products</a>
 		                  <!--<ul class="wsmenu-submenu largemenu">
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>services-1</span></a></li>	 
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>services-2</span></a></li>

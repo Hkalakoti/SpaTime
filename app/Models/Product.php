@@ -6,21 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Banner extends Model
+class Product extends Model
 {
     use HasFactory; use SoftDeletes;
-    
-    protected $table = "banners";
+
+    protected $table = "products";
     
     protected $fillable = [
         'name',
         'description',
         'image',
         'status',
-        'path',
         'date',
     ];
 
     public $timestamps = false;
-
 }

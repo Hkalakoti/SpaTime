@@ -150,3 +150,257 @@
     </div>
 </div>
 <!-- register -->
+
+<body>
+    <header>
+        <div class="padding-left-right">
+            <div class="container-fluid">
+                <div class="header-now-top">
+                    <a href="index.html" class="spa-time"><img src="images/spa-time-new.svg" alt="SPA_TIME" /></a>
+                    <div class="wsmenucontainer clearfix">
+                        <div class="overlapblackbg"></div>
+                        <div class="wsmobileheader clearfix">
+                            <a id="wsnavtoggle" class="animated-arrow"><span></span></a>
+                        </div>
+                        <div class="wsmain">
+                            <nav class="wsmenu clearfix">
+                                <ul class="mobile-sub wsmenu-list">
+                                    <a href="index.html" class="spa-time spa-time-mobile-logo"><img src="images/spa-time-new.svg" alt="SPA_TIME" /></a>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="services-listing.html" class="main-link">Our Services</a>
+                                        <!--<ul class="wsmenu-submenu largemenu">
+		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Massage</span></a></li>	 
+		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Body Scrub</span></a></li>
+		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Facial</span></a></li>
+		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Body Treatment</span></a></li>
+		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Additional Program</span></a></li>
+		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Bridal</span></a></li>
+		                 </ul>-->
+                                    </li>
+                                    <li><a href="products-listing.html" class="main-link">Our Products</a>
+                                        <!--<ul class="wsmenu-submenu largemenu">
+		                     <li class="all-product-main"><a href="javascript:void(0)"><span>services-1</span></a></li>	 
+		                     <li class="all-product-main"><a href="javascript:void(0)"><span>services-2</span></a></li>
+		                     <li class="all-product-main"><a href="javascript:void(0)"><span>services-3</span></a></li>
+		                     <li class="all-product-main"><a href="javascript:void(0)"><span>services-4</span></a></li>
+		                  </ul>-->
+                                    </li>
+                                    <li><a href="gifts-voucher.html" class="main-link">Gift Voucher</a></li>
+                                    <li><a href="contact-us.html" class="main-link">Contact Us</a></li>
+                                    <li><a href="book-now.html" class="main-link main-link-book-now">Book Now</a></li>
+                                    <!--<li><a title="ع" href="javascript:void(0)" class="eng-arabic">ع</a></li>-->
+                                    <li class="mobile-link-hide"><a href="login.html" class="user-link user-link-mobile"><img src="images/icons/user.svg" class="img-fluid login-user" alt="Login"></a></li>
+                                    <li class="mobile-link-hide"><a href="javascript:void(0);" class="main-link cart-link cart-link-mobile"><img src="images/basket.png" class="img-fluid basket-img" alt="Basket"></a>
+                                        <ul class="wsmenu-submenu wsmenu-cart-booking">
+                                            <li><a href="my-cart.html">Spa Booking</a></li>
+                                            <li><a href="shopping-cart.html">Product Cart</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="top-spa-left">
+                        <div class="mobile-search-bar">
+                            <div class="container searchbardiv" id="formsearch">
+                                <form role="search" method="get" id="searchform">
+                                    <div class="input-group">
+                                        <input type="text" id="searchbox" class="form-control" name="s">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default" id="searchsubmit" type="submit">
+                                                <strong>Search</strong>
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <button type="button" class="buttonsearch" id="buttonsearch">
+                                <img src="images/top-icons/search.png" class="img-fluid openclosesearch top-row-icon" alt="Search">
+                                <img src="images/top-icons/search.png" class="img-fluid openclosesearch top-row-icon" alt="Search" style="display:none">
+                            </button>
+
+                        </div>
+
+                        <div class="top-login top-login-mobile">
+                            <ul>
+                                <li><a href="login.html">
+                                        <div class="favourite-main"><span class="favourite-icon"><img src="images/icons/user.svg" alt="Login" class="img-fluid"></span>
+                                        </div>
+                                    </a></li>
+                                <li><a href="javascript:void(0)">
+                                        <div class="favourite-main cart-link"><span class="favourite-icon"><img src="images/basket.png" class="img-fluid basket-img" alt="Basket"></span>
+                                        </div>
+                                    </a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="innerpages-top-banner">
+        <!--<img src="images/innerpages-banner.jpg" class="img-fluid" alt="SPA-TIME">-->
+    </section>
+
+    <section class="breadcrumb-inner breadcrumb-inner-page">
+        <div class="padding-left-right">
+            <div class="container-fluid">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Balinese Massage by SPA TIME</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-listing details-page">
+        <div class="padding-left-right">
+            <div class="container-fluid text-center">
+                <h1 class="wow fadeInDown" data-wow-delay="0.2s" data-wow-duration="1.5s">Balinese Massage</h1>
+                <div class="row">
+                    <div class="col-lg-5 col-md-12 col-sm-12">
+                        <div class="gallery-main">
+                            <div class="swiper-container gallery-top">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="gallery-large" data-src="images/details/01.jpg" data-fancybox="gallery"><img src="images/details/01.jpg" alt="gallery"></div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="gallery-large" data-src="images/details/02.jpg" data-fancybox="gallery"><img src="images/details/02.jpg" alt="gallery"></div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="gallery-large" data-src="images/details/03.jpg" data-fancybox="gallery"><img src="images/details/03.jpg" alt="gallery"></div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="gallery-large" data-src="images/details/04.jpg" data-fancybox="gallery"><img src="images/details/04.jpg" alt="gallery"></div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="gallery-large" data-src="images/details/05.jpg" data-fancybox="gallery"><img src="images/details/05.jpg" alt="gallery">
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="gallery-large" data-src="images/details/06.jpg" data-fancybox="gallery"><img src="images/details/06.jpg" alt="gallery"></div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="gallery-large" data-src="images/details/01.jpg" data-fancybox="gallery"><img src="images/details/01.jpg" alt="gallery"></div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="gallery-large" data-src="images/details/02.jpg" data-fancybox="gallery"><img src="images/details/02.jpg" alt="gallery"></div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="gallery-large" data-src="images/details/03.jpg" data-fancybox="gallery"><img src="images/details/03.jpg" alt="gallery"></div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="gallery-large" data-src="images/details/04.jpg" data-fancybox="gallery"><img src="images/details/04.jpg" alt="gallery"></div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="gallery-large" data-src="images/details/05.jpg" data-fancybox="gallery"><img src="images/details/05.jpg" alt="gallery"></div>
+                                    </div>
+                                    <!--<div class="swiper-slide"><iframe width="100%" height="720" src="https://www.youtube.com/embed/ot0ih9zDZBo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>-->
+                                </div>
+
+                                <div class="swiper-button-next gallery-button-next">
+                                </div>
+
+                                <div class="swiper-button-prev gallery-button-prev">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="thumnail-gallery" style="max-height:110px;">
+                            <div class="swiper-container gallery-thumbs swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+                                <div class="swiper-wrapper" id="swiper-wrapper-a1ff46c353422b10b" aria-live="polite" style="transition-duration: 0ms; transform: translate3d(-1301.42px, 0px, 0px);">
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="4" role="group" aria-label="1 / 22" style="width: 103.167px; margin-right: 10px; max-height:103px;"><img src="images/details/05.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="5" role="group" aria-label="2 / 22" style="width: 103.167px; margin-right: 10px; max-height:103px;"><img src="images/details/06.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="6" role="group" aria-label="3 / 22" style="width: 103.167px; margin-right: 10px; max-height:103px;"><img src="images/details/01.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="7" role="group" aria-label="4 / 22" style="width: 103.167px; margin-right: 10px; max-height:103px;"><img src="images/details/02.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="8" role="group" aria-label="5 / 22" style="width: 103.167px; margin-right: 10px; max-height:103px;"><img src="images/details/03.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="9" role="group" aria-label="6 / 22" style="width: 103.167px; margin-right: 10px; max-height:103px;"><img src="images/details/04.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide" data-swiper-slide-index="0" role="group" aria-label="7 / 22" style="width: 103.167px; margin-right: 10px; max-height:103px;"><img src="images/details/01.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide" data-swiper-slide-index="1" role="group" aria-label="8 / 22" style="width: 103.167px; margin-right: 10px; max-height:103px;"><img src="images/details/02.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide" data-swiper-slide-index="2" role="group" aria-label="9 / 22" style="width: 103.167px; margin-right: 10px; max-height:103px;"><img src="images/details/03.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide" data-swiper-slide-index="3" role="group" aria-label="10 / 22" style="width: 103.167px; margin-right: 10px; max-height:103px;"><img src="images/details/04.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide" data-swiper-slide-index="4" role="group" aria-label="11 / 22" style="width: 103.167px; margin-right: 10px; max-height:103px;"><img src="images/details/05.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide" data-swiper-slide-index="5" role="group" aria-label="12 / 22" style="width: 103.167px; margin-right: 10px;  max-height:103px;"><img src="images/details/06.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide" data-swiper-slide-index="6" role="group" aria-label="13 / 22" style="width: 103.167px; margin-right: 10px;  max-height:103px;"><img src="images/details/01.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="7" role="group" aria-label="14 / 22" style="width: 103.167px; margin-right: 10px;  max-height:103px;"><img src="images/details/02.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="8" role="group" aria-label="15 / 22" style="width: 103.167px; margin-right: 10px;  max-height:103px;"><img src="images/details/03.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="9" role="group" aria-label="16 / 22" style="width: 103.167px; margin-right: 10px;  max-height:103px;"><img src="images/details/04.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" role="group" aria-label="17 / 22" style="width: 103.167px; margin-right: 10px;  max-height:103px;"><img src="images/details/01.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" role="group" aria-label="18 / 22" style="width: 103.167px; margin-right: 10px;  max-height:103px;"><img src="images/details/02.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" role="group" aria-label="19 / 22" style="width: 103.167px; margin-right: 10px;  max-height:103px;"><img src="images/details/03.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" role="group" aria-label="20 / 22" style="width: 103.167px; margin-right: 10px;  max-height:103px;"><img src="images/details/04.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="4" role="group" aria-label="21 / 22" style="width: 103.167px; margin-right: 10px;  max-height:103px;"><img src="images/details/05.jpg" alt="gallery"></div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="5" role="group" aria-label="22 / 22" style="width: 103.167px; margin-right: 10px;  max-height:103px;"><img src="images/details/06.jpg" alt="gallery"></div>
+                                </div>
+                                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                                <div class="swiper-button-next thumbs-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-a1ff46c353422b10b"></div>
+                        <div class="swiper-button-prev thumbs-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-a1ff46c353422b10b"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 col-md-12 col-sm-12">
+                        <div class="product-description">
+                            <h2>Balinese Massage by SPA TIME</h2>
+                            <div class="price-detail">180 KWD</div>
+
+                            <h4>Select Size</h4>
+                            <ul class="unstyled select-delivery select-qty-spa-time anim5">
+                                <li>
+                                    <input class="styled-checkbox" id="qty1" name="time" type="radio" value="">
+                                    <label for="qty1"><span>100 ML</span></label>
+                                </li>
+                                <li>
+                                    <input class="styled-checkbox" id="qty2" name="time" type="radio" value="">
+                                    <label for="qty2"><span>150 ML</span></label>
+                                </li>
+                            </ul>
+
+                            <h4>Description</h4>
+                            <p>Although Balinese massage is popular everywhere, SPA TIME has upgraded this massage and re-modified strokes & movements in this medium pressure massage for the ultimate relaxation and for the Immunity Boost. During which specialized strokes are applied with the aromatic oils to reduce stress in order to release tension and stimulate blood circulation to eliminate fatigue and to strengthen immunity to improve ability to resist microbes. This immuno-boost massage begins without the use of oil in order to warm the body and then flows into an oil massage. Various blends of oils are used depending on the needs of the client.</p>
+
+                            <div class="add-to-favourite">
+                                <a href="javascript:void(0);" class="add-to-favourite-link fav-detail-btn featured-button-container w-313">
+                                    <span class="featured-button-line">
+                                    </span>
+                                </a>
+                            </div>
+
+                            <div class="cart-buy-btns">
+                                <button class="button detail-addtocart w-153">
+                                    <a href="shopping-cart.html">Add to Cart</a>
+                                </button>
+
+                                <button class="button detail-addtocart w-153">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z">
+                                        </path>
+                                    </svg> Add to Wishlist</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</body>

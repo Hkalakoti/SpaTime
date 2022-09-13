@@ -36,6 +36,15 @@ Route::get('/banner/delete/{id}','App\Http\Controllers\HomeController@destroy')-
 
 Route::post('/signup','App\Http\Controllers\UserController@signup')->name('signup');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
+Route::get('/home','App\Http\Controllers\HomeController@index')->name('home');
+
+Route::get('/products-listing','App\Http\Controllers\HomeController@category')->name('category');
+Route::get('/Category','App\Http\Controllers\HomeController@products')->name('products');
+Route::get('/Category/Add','App\Http\Controllers\HomeController@categoryAdd')->name('categoryAdd'); 
+Route::post('/Category/Adding','App\Http\Controllers\HomeController@categoryAdding')->name('categoryAdding'); 
+Route::get('/Category/Manage','App\Http\Controllers\HomeController@categoryManage')->name('categoryManage');
+Route::get('/Category/edit/{id}','App\Http\Controllers\HomeController@categoryEdit')->name('categoryEdit ');
+Route::post('/Category/update','App\Http\Controllers\HomeController@updateCategory')->name('updateCategory');
+
 
 });

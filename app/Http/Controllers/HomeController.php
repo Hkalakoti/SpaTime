@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Category;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -40,7 +41,7 @@ class HomeController extends Controller
     public function bannerAdd()
     {
 
-        return view('layouts.add');
+        return view('admin.add');
     }
 
 
@@ -113,11 +114,72 @@ class HomeController extends Controller
 
     public function destroy($id)
     {
-
         Banner::find($id)->delete();
         return redirect()->back()->with('error', 'Record deleted successfully');
     }
     //Admin banner manage functions--end
+
+
+    // Admin category manage functions
+
+    public function category()
+    {
+        return view('category.category');
+    }
+
+    public function products()
+    {
+        return view('category.products');
+    }
+
+    public function categoryAdd(Request $request)
+    {
+        return view('category.add');
+    }
+
+    public function categoryAdding(Request $request)
+    {
+        $data = [];
+        $data['name'] = $request->name;
+        $data['date'] = Carbon::now();
+
+        Category::create($data);
+
+        return redirect()->route('categoryManage');
+    }
+
+    public function categoryManage()
+    {
+        $data = [];
+        $data = Category::get();
+
+        return view('category.manage', ['data' => $data]);
+    }
+
+    public function categoryEdit()
+    {
+        $data = [];
+        $data = Category::get();
+
+        return view('category.edit', ['data' => $data]);
+    }
+
+    public function updateCategory(Request $request)
+    {
+        $data = [];
+        $data['name'] = $request->name;
+        $dataPacket['status'] = $request->status;
+        
+        //updates status iteratively
+        Category::where('status', 1)->update(['status' => '0']); 
+
+        $data =  Category::where('id', $request->id)->update($dataPacket);
+
+        return redirect()->route('categoryManage')->with('success', 'Record edited successfully!', array('timeout' => 3));
+   
+    }
+
+    // Admin category manage functions end
 
     public function home(Request $request)
     {

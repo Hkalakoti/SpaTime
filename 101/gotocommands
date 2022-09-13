@@ -9,3 +9,5 @@
 
 --status--
         $result= Banner::table('banners')->where([$data['status'] => 1])-> get();
+
+        

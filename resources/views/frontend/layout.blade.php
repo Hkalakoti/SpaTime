@@ -23,23 +23,23 @@
 <meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Sacramento&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
-<link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet" type="text/css">		
-<link href="css/jpreloader.css" rel="stylesheet" type="text/css" media="screen"/>
-<link href="css/animate.css" rel="stylesheet" type="text/css" media="screen"/>		
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/webslidemenu.css" rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" type="text/css" href="scrollbar/jquery.mCustomScrollbar.min.css"/>
-<link rel="stylesheet" type="text/css" href="fancybox-master/jquery.fancybox.min.css" />
-<link href="css/jquery-ui.css" rel="stylesheet" type="text/css" media="all" />	
-<link rel="stylesheet" href="swiper/swiper-bundle.min.css">
-<link rel="stylesheet" href="swiper/swiper.min.css">	
-<link href="css/animate.css" rel="stylesheet" type="text/css" media="screen"/>			
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
-<link href="css/dd.css" rel="stylesheet" type="text/css" media="all">	
-<link href="css/jquery.bxslider.css" rel="stylesheet" type="text/css">	
-<link href="css/responsive.css" rel="stylesheet" type="text/css"  media="all">
-<link href="css/owl.carousel.min.css" rel="stylesheet" type="text/css">
-<link href="css/owl.theme.default.min.css" rel="stylesheet" type="text/css">	
+<link href="{{asset('https://use.fontawesome.com/releases/v5.2.0/css/all.css')}}" rel="stylesheet" type="text/css">		
+<link href="{{asset('css/jpreloader.css')}}" rel="stylesheet" type="text/css" media="screen"/>
+<link href="{{asset('css/animate.css')}}" rel="stylesheet" type="text/css" media="screen"/>		
+<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" media="all" />
+<link href="{{asset('css/webslidemenu.css')}}" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="{{asset('scrollbar/jquery.mCustomScrollbar.min.css')}}"/>
+<link rel="stylesheet" type="text/css" href="{{asset('fancybox-master/jquery.fancybox.min.css')}}" />
+<link href="{{asset('css/jquery-ui.css')}}" rel="stylesheet" type="text/css" media="all" />	
+<link rel="stylesheet" href="{{asset('swiper/swiper-bundle.min.css')}}">
+<link rel="stylesheet" href="{{asset('swiper/swiper.min.css')}}">
+<link href="{{asset('css/animate.css')}}" rel="stylesheet" type="text/css" media="screen"/>			
+<link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css" media="all">
+<link href="{{asset('css/dd.css')}}" rel="stylesheet" type="text/css" media="all">	
+<link href="{{asset('css/jquery.bxslider.css')}}" rel="stylesheet" type="text/css">	
+<link href="{{asset('css/responsive.css')}}" rel="stylesheet" type="text/css"  media="all">
+<link href="{{asset('css/owl.carousel.min.css')}}" rel="stylesheet" type="text/css">
+<link href="{{asset('css/owl.theme.default.min.css')}}" rel="stylesheet" type="text/css">	
 </head>
 
 <body>
@@ -69,7 +69,7 @@
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Bridal</span></a></li>
 		                 </ul>-->
 		            </li>
-					<li><a href="products-listing.html" class="main-link">Our Products</a>
+					<li><a href="{{route('category')}}" class="main-link">Our Products</a>
 		                  <!--<ul class="wsmenu-submenu largemenu">
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>services-1</span></a></li>	 
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>services-2</span></a></li>
@@ -149,35 +149,35 @@
 </section> -->
 @yield('content')
 
-<script type="text/javascript" src="js/jquery-3.4.1.slim.min.js"></script>
-<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>		
-<script type="text/javascript" src="js/jpreloader.js"></script>
-<script type="text/javascript" src="js/loader.js"></script>
-<script type="text/javascript" src="js/wow.min.js"></script>
+<script type="text/javascript" src="{{asset('js/jquery-3.4.1.slim.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/jquery-1.12.4.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/bootstrap.bundle.min.js')}}"></script>		
+<script type="text/javascript" src="{{asset('js/jpreloader.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/loader.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/wow.min.js')}}"></script>
 <!--<script src="js/scrolloverflow.min.js"></script>-->
-<script src="js/fullpage.min.js"></script>
-<script src="js/fullpage.js"></script>
-<script src="js/parallaxscroll.js"></script>	
-<script type="text/javascript" src="js/webslidemenu.js"></script>
-<script type="text/javascript" src="scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-<script type="text/javascript" src="fancybox-master/jquery.fancybox.min.js"></script>
-<script type="text/javascript" src="fancybox-master/fancybox.js"></script>
+<script src="{{asset('js/fullpage.min.js')}}"></script>
+<script src="{{asset('js/fullpage.js')}}"></script>
+<script src="{{asset('js/parallaxscroll.js')}}"></script>	
+<script type="text/javascript" src="{{asset('js/webslidemenu.js')}}"></script>
+<script type="text/javascript" src="{{asset('scrollbar/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('fancybox-master/jquery.fancybox.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('fancybox-master/fancybox.js')}}"></script>
 <!--start swiper-->
-<script type="text/javascript" src="swiper/swiper.min.js"></script>
+<script type="text/javascript" src="{{asset('swiper/swiper.min.js')}}"></script>
 
-<script src="swiper/swiper-bundle.min.js"></script>
-<script src="swiper/swiper.js"></script>
+<script src="{{asset('swiper/swiper-bundle.min.js')}}"></script>
+<script src="{{asset('swiper/swiper.js')}}"></script>
 	
-<script type="text/javascript" src="js/custom-spa-time.js"></script>
+<script type="text/javascript" src="{{asset('js/custom-spa-time.js')}}"></script>
 <!--end swiper-->
-<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="{{asset('js/custom.js')}}"></script>
 
-<script type="text/javascript" src="js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/date.picker.js"></script>
+<script type="text/javascript" src="{{asset('js/jquery-ui.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/date.picker.js')}}"></script>
 
-<script type="text/javascript" src="js/uncompressed.jquery.dd.js"></script>
-<script type="text/javascript" src="js/selectbox.js"></script>
+<script type="text/javascript" src="{{asset('js/uncompressed.jquery.dd.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/selectbox.js')}}"></script>
 
 	
 	
