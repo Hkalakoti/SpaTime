@@ -7,9 +7,11 @@ use App\Models\Category;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Ui\Presets\React;
 
 class HomeController extends Controller
 {
@@ -60,8 +62,11 @@ class HomeController extends Controller
             $file->move(public_path('public/Image'), $filename);
             $dataPacket['image'] = $filename;
         }
-        $data = Banner::create($dataPacket);
+        
+        Banner::where('status', 1)->update(['status' => '0']);
 
+        $data = Banner::create($dataPacket);
+        
         return redirect()->route('bannerManage');
     }
 
@@ -69,9 +74,7 @@ class HomeController extends Controller
     {
         $data = [];
         $data = Banner::get();
-
         //  Banner::whereIn('status', [$request->status])->update(['status' => '0']); //updates status iteratively
-
 
         return view('admin.manage', ['data' => $data]);
     }
@@ -101,14 +104,17 @@ class HomeController extends Controller
             $file->move(public_path('public/Image'), $filename);
             $dataPacket['image'] = $filename;
         }
-        
+
         //updates status iteratively
-        Banner::where('status', 1)->update(['status' => '0']); 
+        if ($dataPacket['status'] ==0 ){
 
+        return redirect()->route('bannerManage')->with('error', 'At least one banner must be active', array('timeout' => 3));
+
+        }
+        else{
+        $test= Banner::where('status', 1)->update(['status' => '0']);
         $data =  Banner::where('id', $request->id)->update($dataPacket);
-
-
-
+        }
         return redirect()->route('bannerManage')->with('success', 'Record edited successfully!', array('timeout' => 3));
     }
 
@@ -118,72 +124,9 @@ class HomeController extends Controller
         return redirect()->back()->with('error', 'Record deleted successfully');
     }
     //Admin banner manage functions--end
-
-
-    // Admin category manage functions
-
-    public function category()
-    {
-        return view('category.category');
-    }
-
-    public function products()
-    {
-        return view('category.products');
-    }
-
-    public function categoryAdd(Request $request)
-    {
-        return view('category.add');
-    }
-
-    public function categoryAdding(Request $request)
-    {
-        $data = [];
-        $data['name'] = $request->name;
-        $data['date'] = Carbon::now();
-
-        Category::create($data);
-
-        return redirect()->route('categoryManage');
-    }
-
-    public function categoryManage()
-    {
-        $data = [];
-        $data = Category::get();
-
-        return view('category.manage', ['data' => $data]);
-    }
-
-    public function categoryEdit()
-    {
-        $data = [];
-        $data = Category::get();
-
-        return view('category.edit', ['data' => $data]);
-    }
-
-    public function updateCategory(Request $request)
-    {
-        $data = [];
-        $data['name'] = $request->name;
-        $dataPacket['status'] = $request->status;
-        
-        //updates status iteratively
-        Category::where('status', 1)->update(['status' => '0']); 
-
-        $data =  Category::where('id', $request->id)->update($dataPacket);
-
-        return redirect()->route('categoryManage')->with('success', 'Record edited successfully!', array('timeout' => 3));
-   
-    }
-
-    // Admin category manage functions end
-
+    
     public function home(Request $request)
     {
-
         $data = [];
         $data = Banner::where('status', '=', 1)->first();
 

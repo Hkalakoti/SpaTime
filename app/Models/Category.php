@@ -18,7 +18,6 @@ class Category extends Model
         'date',
         'status',
         'deleted_at',
-        'updated_at',
     ];
 
     public $timestamps = false;

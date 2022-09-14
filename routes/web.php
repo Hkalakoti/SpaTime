@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Banner;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\HomeController@home')->name('index');
+Route::get('/', 'App\Http\Controllers\HomeController@home')->name('home');
+
 
 Auth::routes();
 
@@ -28,7 +31,7 @@ Route::get('/delete/{id}', function () {
     return view('admin.delete');
 })->name('delete');
 
-
+// Banner
 Route::post('/adding','App\Http\Controllers\HomeController@add')->name('adding');
 Route::get('/banner/manage','App\Http\Controllers\HomeController@manage')->name('bannerManage');
 Route::post('/banner/update','App\Http\Controllers\HomeController@updateData')->name('updateData');
@@ -36,15 +39,23 @@ Route::get('/banner/delete/{id}','App\Http\Controllers\HomeController@destroy')-
 
 Route::post('/signup','App\Http\Controllers\UserController@signup')->name('signup');
 
-Route::get('/home','App\Http\Controllers\HomeController@index')->name('home');
 
-Route::get('/products-listing','App\Http\Controllers\HomeController@category')->name('category');
-Route::get('/Category','App\Http\Controllers\HomeController@products')->name('products');
-Route::get('/Category/Add','App\Http\Controllers\HomeController@categoryAdd')->name('categoryAdd'); 
-Route::post('/Category/Adding','App\Http\Controllers\HomeController@categoryAdding')->name('categoryAdding'); 
-Route::get('/Category/Manage','App\Http\Controllers\HomeController@categoryManage')->name('categoryManage');
-Route::get('/Category/edit/{id}','App\Http\Controllers\HomeController@categoryEdit')->name('categoryEdit ');
-Route::post('/Category/update','App\Http\Controllers\HomeController@updateCategory')->name('updateCategory');
+// Category
+Route::get('/products-listing','App\Http\Controllers\CategoryController@category')->name('category');
+Route::get('/Category/Add','App\Http\Controllers\CategoryController@add')->name('categoryAdd'); 
+Route::post('/Category/Adding','App\Http\Controllers\CategoryController@adding')->name('categoryAdding'); 
+Route::get('/Category/Manage','App\Http\Controllers\CategoryController@manage')->name('categoryManage');
+Route::get('/Category/edit/{id}','App\Http\Controllers\CategoryController@edit')->name('categoryEdit');
+Route::post('/Category/update','App\Http\Controllers\CategoryController@update')->name('updateCategory');
+Route::get('/Category/delete/{id}','App\Http\Controllers\CategoryController@destroy')->name('categoryDestroy');
 
+
+// products
+Route::get('/products/list','App\Http\Controllers\ProductsController@products')->name('products');
+Route::get('/products/Add','App\Http\Controllers\ProductsController@Add')->name('productsAdd');
+Route::post('/products/Adding','App\Http\Controllers\ProductsController@adding')->name('productsAdding'); 
+Route::get('/products/manage','App\Http\Controllers\ProductsController@Manage')->name('productsManage');
+
+Route::get('/home','App\Http\Controllers\HomeController@index')->name('index');
 
 });
