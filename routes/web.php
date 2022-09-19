@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OurServices;
 use App\Models\Banner;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
@@ -23,21 +24,17 @@ Auth::routes();
 
 Route::group(['middleware' => 'disable_back_btn'], function(){
 
-Route::get('/add', 'App\Http\Controllers\HomeController@bannerAdd')->name('bannerAdd');
-
-Route::get('/edit/{id}','App\Http\Controllers\HomeController@edit')->name('edit');
-
-Route::get('/delete/{id}', function () {
-    return view('admin.delete');
-})->name('delete');
+// Route::get('/delete/{id}', function () {
+//     return view('admin.delete');
+// })->name('delete');
 
 // Banner
+Route::get('/add', 'App\Http\Controllers\HomeController@bannerAdd')->name('bannerAdd');
 Route::post('/adding','App\Http\Controllers\HomeController@add')->name('adding');
 Route::get('/banner/manage','App\Http\Controllers\HomeController@manage')->name('bannerManage');
 Route::post('/banner/update','App\Http\Controllers\HomeController@updateData')->name('updateData');
 Route::get('/banner/delete/{id}','App\Http\Controllers\HomeController@destroy')->name('destroy');
-
-Route::post('/signup','App\Http\Controllers\UserController@signup')->name('signup');
+Route::get('/edit/{id}','App\Http\Controllers\HomeController@edit')->name('edit');
 
 
 // Category
@@ -56,6 +53,11 @@ Route::get('/products/Add','App\Http\Controllers\ProductsController@Add')->name(
 Route::post('/products/Adding','App\Http\Controllers\ProductsController@adding')->name('productsAdding'); 
 Route::get('/products/manage','App\Http\Controllers\ProductsController@Manage')->name('productsManage');
 
+// home and defaults
 Route::get('/home','App\Http\Controllers\HomeController@index')->name('index');
+Route::post('/signup','App\Http\Controllers\UserController@signup')->name('signup');
+Route::get('/contact-us','App\Http\Controllers\HomeController@contactUs')->name('contactUs');
+Route::post('/contact-us','App\Http\Controllers\HomeController@contact_Us')->name('contact_us');
+Route::get('/OurServices','App\Http\Controllers\OurServicesController@view')->name('OurServices');
 
 });

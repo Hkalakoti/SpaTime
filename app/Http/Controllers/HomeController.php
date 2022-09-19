@@ -8,10 +8,10 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ContactUs;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Laravel\Ui\Presets\React;
 
 class HomeController extends Controller
 {
@@ -42,8 +42,7 @@ class HomeController extends Controller
 
     public function bannerAdd()
     {
-
-        return view('admin.add');
+        return view('backend.banner.add');
     }
 
 
@@ -76,7 +75,7 @@ class HomeController extends Controller
         $data = Banner::get();
         //  Banner::whereIn('status', [$request->status])->update(['status' => '0']); //updates status iteratively
 
-        return view('admin.manage', ['data' => $data]);
+        return view('backend.banner.manage', ['data' => $data]);
     }
 
     public function edit(Request $request, $id)
@@ -86,7 +85,7 @@ class HomeController extends Controller
         $dataPacket = Banner::get();
         $dataPacket = Banner::where('id', $id)->first(); //send specific id entry from DB (first()-> takes a row from db)
 
-        return view('admin.edit', ['id' => $id, 'data' => $dataPacket]); //routes to edit.blade.php
+        return view('backend.banner.edit', ['id' => $id, 'data' => $dataPacket]); //routes to edit.blade.php
     }
 
     public function updateData(Request $request)
@@ -131,5 +130,24 @@ class HomeController extends Controller
         $data = Banner::where('status', '=', 1)->first();
 
         return view('frontend.index', ['id' => $request->id, 'data' => $data]);
+    }
+
+    public function ContactUs(Request $request)
+    {
+        return view('frontend.contactUs');
+    }
+
+    public function Contact_Us(Request $request)
+    {
+        $data = [];
+        $data['fname'] = $request->fname;
+        $data['lname'] = $request->lname;
+        $data['phone'] = $request->phone;
+        $data['email'] = $request->email;
+        $data['message'] = $request->message;
+
+        $data = ContactUs:: create($data);
+
+        return redirect()->route('contactUs');
     }
 }

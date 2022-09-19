@@ -17,12 +17,12 @@ class CategoryController extends Controller
         $data = []; 
         $data['category'] = Category::where('status', '=', 1)->get();
         $data['product'] = Product::with('category')->get();
-        return view('category.category',['data'=> $data]);
+        return view('frontend.category',['data'=> $data]);
     }
 
     public function add(Request $request)
     {
-        return view('category.add');
+        return view('backend.category.add');
     }
 
     public function adding(Request $request)
@@ -41,7 +41,7 @@ class CategoryController extends Controller
         $data = [];
         $data = Category::get();
 
-        return view('category.manage', ['data' => $data]);
+        return view('backend.category.manage', ['data' => $data]);
     }
 
     public function edit($id)
@@ -51,7 +51,7 @@ class CategoryController extends Controller
         $data = Category::where('id', $id)->first(); //send specific id entry from DB (first()-> takes a row from db)
 
 
-        return view('category.edit', ['id' => $id,'data' => $data]);
+        return view('backend.category.edit', ['id' => $id,'data' => $data]);
     }
 
     public function update(Request $request)

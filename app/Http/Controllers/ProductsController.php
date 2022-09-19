@@ -12,12 +12,12 @@ class ProductsController extends Controller
     {   
         $data = Product::first();
 
-        return view('products.products',['data'=> $data]);
+        return view('frontend.products',['data'=> $data]);
     }
 
     public function add()
     {   
-        return view('products.add');
+        return view('backend.products.add');
     }
 
     public function adding(Request $request)
@@ -37,21 +37,21 @@ class ProductsController extends Controller
     {   
         $data = Product::get();
 
-        return view('products.manage',['data' => $data]);
+        return view('backend.products.manage',['data' => $data]);
     }
 
     public function edit()
     {   
-        return view('products.edit');
+        return view('backend.products.edit');
     }
 
     public function update()
     {   
-        return view('products.update');
+        return view('backend.products.update');
     }
 
     public function destroy()
     {   
-        return view('products.destroy');
+        return view('backend.products.destroy');
     }
 }

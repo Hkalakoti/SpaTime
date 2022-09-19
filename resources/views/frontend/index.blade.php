@@ -59,7 +59,7 @@
 				<ul class="mobile-sub wsmenu-list">
 					<a href="{{route('index')}}" class="spa-time spa-time-mobile-logo"><img src="images/spa-time-new.svg" alt="SPA_TIME"/></a>
 					<li><a href="{{route('index')}}">Home</a></li>
-                    <li><a href="services-listing.html" class="main-link">Our Services</a>  
+                    <li><a href="{{route('OurServices')}}" class="main-link">Our Services</a>  
 		                  <!--<ul class="wsmenu-submenu largemenu">
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Massage</span></a></li>	 
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Body Scrub</span></a></li>
@@ -78,7 +78,7 @@
 		                  </ul>-->  
 		            </li>
 		            <li><a href="gifts-voucher.html" class="main-link">Gift Voucher</a></li>
-		            <li><a href="contact-us.html" class="main-link">Contact Us</a></li>
+		            <li><a href="{{route('contactUs')}}" class="main-link">Contact Us</a></li>
 					<li><a href="book-now.html" class="main-link main-link-book-now">Book Now</a></li>
 		            <!--<li><a title="ع" href="javascript:void(0)" class="eng-arabic">ع</a></li>-->
 					<li class="mobile-link-hide link-top-desktop"><a href="{{route('login')}}" class="user-link user-link-mobile"><img src="{{asset('images/icons/user.svg')}}" class="img-fluid login-user" alt="Login"></a></li>
@@ -703,177 +703,8 @@
 	</div>	
 </section>
 	
-<div id="booknow-home" class="popup-hidden black-bg animated-modal booknow-model">
-<div class="row-checkout-col">
-<div class="selectdate">
-<h4>Select Service</h4>												
-	<div class="form-group anim3">
-		<div class=""><select class="form-control empty"><option value="0">- Select Service -</option><option value="massage">Massage</option><option value="scrub">Body Scrub</option><option value="treatment">Body Treatment</option><option value="facial">Facial</option>
-		<option value="program">Additional Program</option><option value="bridal">Bridal</option></select></div>
-	</div>
-</div>
-	
-<div class="selectdate">
-<h4>Select Date</h4>												
-<ul class="unstyled color-radios pro-collect1">
-<li class="white">
-<input class="styled-checkbox styled-checkbox-out" id="date_1" checked="" name="size" type="radio" value="1">
-<label for="date_1"><p class="date-select">YES</p></label>
-</li>
-<li class="white">
-<input class="styled-checkbox styled-checkbox-out" id="date_2" name="size" type="radio" value="2">
-<label for="date_2"><p class="date-select">BOOK LATER</p></label>
-</li>	
-</ul>
-</div>			
-<div class="selectdate">
-<h4>Select Desired Date</h4>												
-<ul class="unstyled select-delivery anim5">
-		<li>
-			<input class="styled-checkbox" id="date1" name="date" type="radio" value="">
-			<label for="date1"><span>Today<br>29 June</span></label>
-		</li>
-		<li>
-			<input class="styled-checkbox" id="date2" name="date" type="radio" value="">
-			<label for="date2"><span>Tomorrow<br>30 June</span></label>
-		</li>
-	  
-	  	<li>
-			<input class="styled-checkbox" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" id="date3" name="date" type="radio" value="">
-			<label for="date3"><span>Pick Your<br>Date</span></label>
-			<input class="styled-checkbox form-control form-control-datepicker datepicker" id="date03" name="date" type="radio" value="" placeholder= "Pick A Date">
-		</li>
-	  
-	  	<!--<li>
-			<input class="styled-checkbox form-control form-control-datepicker datepicker" id="date3" name="date" type="radio" value="" placeholder= "Pick A Date" >
-			<label for="date3"><span><i class="fas fa-calendar-alt"></i><br>Pick A Date</span></label>
-		</li>-->
-	</ul>
-</div>
-	
-<div class="selectdate">
-<h4>Select Desired Location</h4>												
-<ul class="unstyled select-delivery anim5">
-		<li>
-			<input class="styled-checkbox" id="location1" name="location" type="radio" value="">
-			<label for="location1"><span>The Avenues</span></label>
-		</li>
-		<li>
-			<input class="styled-checkbox" id="location2" name="location" type="radio" value="">
-			<label for="location2"><span>KIPCO</span></label>
-		</li>
-		<li>
-			<input class="styled-checkbox" id="location3" name="location" type="radio" value="">
-			<label for="location3"><span>Al-Mohallab Mall</span></label>
-		</li>
-		<li>
-			<input class="styled-checkbox" id="location4" name="location" type="radio" value="">
-			<label for="location4"><span>Al-Kout Mall</span></label>
-		</li>	
-	  
-	  	
-	  
-	  	<!--<li>
-			<input class="styled-checkbox form-control form-control-datepicker datepicker" id="date3" name="date" type="radio" value="" placeholder= "Pick A Date" >
-			<label for="date3"><span><i class="fas fa-calendar-alt"></i><br>Pick A Date</span></label>
-		</li>-->
-	</ul>
-</div>	
-		
-<div class="selectdate">
-<h4>Select the Time Slot</h4>												
-<ul class="unstyled select-delivery select-delivery-spa-time anim5">
-		<li>
-			<input class="styled-checkbox" id="time01" name="time" type="radio" value="">
-			<label for="time01"><span>08:00 AM</span></label>
-		</li>
-		<li>
-			<input class="styled-checkbox" id="time02" name="time" type="radio" value="">
-			<label for="time02"><span>09:00 AM</span></label>
-		</li>
-		<li>
-			<input class="styled-checkbox" id="time03" name="time" type="radio" value="">
-			<label for="time03"><span>10:00 AM</span></label>
-		</li>
-		<li>
-			<input class="styled-checkbox" id="time04" name="time" type="radio" value="">
-			<label for="time04"><span>11:00 AM</span></label>
-		</li>
-		<li>
-			<input class="styled-checkbox" id="time05" name="time" type="radio" value="">
-			<label for="time05"><span>12:00 PM</span></label>
-		</li>
-		<li>
-			<input class="styled-checkbox" id="time06" name="time" type="radio" value="">
-			<label for="time06"><span>01:00 PM</span></label>
-		</li>
-		<li>
-			<input class="styled-checkbox" id="time07" name="time" type="radio" value="">
-			<label for="time07"><span>02:00 PM</span></label>
-		</li>
-		<li>
-			<input class="styled-checkbox" id="time08" name="time" type="radio" value="">
-			<label for="time08"><span>03:00 PM</span></label>
-		</li>
-		<li>
-			<input class="styled-checkbox" id="time09" name="time" type="radio" value="">
-			<label for="time09"><span>04:00 PM</span></label>
-		</li>
-		<li>
-			<input class="styled-checkbox" id="time10" name="time" type="radio" value="">
-			<label for="time10"><span>05:00 PM</span></label>
-		</li>
-		<li>
-			<input class="styled-checkbox" id="time11" name="time" type="radio" value="">
-			<label for="time11"><span>06:00 PM</span></label>
-		</li>
-	</ul>
-</div>
-<div class="selectdate">
-<h4>Select Your Preferred Therapist</h4>
-	<div class="form-group special-notes custom-selectbox">
-			<select name="customSelect" id="customSelect">
-			<option value="" selected="selected" role="Beautician" title="beautician/beautician.jpg">Select your Preferred Beautician</option>
-			<option value="Mary" role="Mary" title="beautician/Mary.jpg">Skilled in all areas of beauty treatments and in helping clients improve their personal appearance</option>
-			<option value="" role="Chiristy" title="beautician/Chiristy.jpg">Skilled in all areas of beauty treatments and in helping clients improve their personal appearance</option>
-			<option value="" role="Samantha" title="beautician/Samantha.jpg">Skilled in all areas of beauty  treatments and in helping clients improve their personal appearance</option>
-			<option value="" role="Jasmine Rosa" title="beautician/Jasmine-Rosa.jpg">Skilled in all areas of beauty treatments and in helping clients improve their personal appearance</option>
-			<option value="" role="Angel" title="beautician/Angel.jpg">Skilled in all areas of beauty treatments and in helping clients improve their personal appearance</option>
-			</select>
-	</div>	
-</div>	
-	</div>
-</div>	
-	
-	
-<!--<div id="BbookModel" class="logModel popup-hidden black-bg animated-modal">
-	<p class="anim1">Got a gift from a friend? <br>Login to see all your gift and paid sessions</p><br>
-	<div class="form-group anim2">
-		<div class="row d-flex justify-content-center text-center">
-	    <div class="col-lg-6">
-		<a href="javascript:void(0)">Login</a>	
-		</div>
-		<div class="col-lg-6">
-		<a href="javascript:void(0)">Sign Up</a>
-		</div>	
-		</div>
-	</div>
-	<hr>
-	<div class="anim3">
-	<h4>Quick Booking</h4>
-	</div>
-	<div class="form-group anim3">
-		<div class=""><select class="form-control empty"><option value="0">- Select Service -</option><option value="massage">Massage</option><option value="scrub">Body Scrub</option><option value="treatment">Body Treatment</option><option value="facial">Facial</option>
-		<option value="program">Additional Program</option><option value="bridal">Bridal</option></select></div>
-	</div>
-<div class="form-group anim4 signup-btn" style="text-align: center;"><button type="submit" class="button-line button-line-home">Book Now</button>
-</div>
-</div>-->	
-	
-	
-	
-<div class="shape-popup-wrapper"></div>
-<div class="shape-quick-wrapper"></div>	
+	<!-- <div class="shape-popup-wrapper"></div> -->
+<!-- <div class="shape-quick-wrapper"></div>	 -->
 	
 <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>	
 <script type="text/javascript" src="js/jpreloader.js"></script>
@@ -888,15 +719,15 @@
 <script type="text/javascript" src="fancybox-master/jquery.fancybox.min.js"></script>
 <script type="text/javascript" src="fancybox-master/fancybox.js"></script>
 <!--start swiper-->
-<script type="text/javascript" src="swiper/swiper.min.js"></script>
+<!-- <script type="text/javascript" src="swiper/swiper.min.js"></script>
 	
 <script src="swiper/swiper-bundle.min.js"></script>
 <script src="swiper/swiper.js"></script>
 
 <script type="text/javascript" src="js/uncompressed.jquery.dd.js"></script>
-<script type="text/javascript" src="js/selectbox.js"></script>	
+<script type="text/javascript" src="js/selectbox.js"></script>	 -->
 	
-<!--end swiper-->
+<!-- end swiper -->
 <script type="text/javascript" src="js/custom-spa-time.js"></script>	
 <script type="text/javascript" src="js/custom.js"></script>
 	
