@@ -56,8 +56,15 @@ Route::get('/products/manage','App\Http\Controllers\ProductsController@Manage')-
 // home and defaults
 Route::get('/home','App\Http\Controllers\HomeController@index')->name('index');
 Route::post('/signup','App\Http\Controllers\UserController@signup')->name('signup');
+
 Route::get('/contact-us','App\Http\Controllers\HomeController@contactUs')->name('contactUs');
 Route::post('/contact-us','App\Http\Controllers\HomeController@contact_Us')->name('contact_us');
-Route::get('/OurServices','App\Http\Controllers\OurServicesController@view')->name('OurServices');
 
+
+Route::get('/OurServices','App\Http\Controllers\OurServicesController@view')->name('OurServices');
+Route::get('/OurServices/Add','App\Http\Controllers\OurServicesController@add')->name('ServicesAdd');
+
+
+// data table
+Route::get('users', ['uses'=>'UserController@index', 'as'=>'users.index']);
 });

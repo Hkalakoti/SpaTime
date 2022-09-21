@@ -59,7 +59,7 @@
 				<ul class="mobile-sub wsmenu-list">
 					<a href="{{route('index')}}" class="spa-time spa-time-mobile-logo"><img src="{{asset('images/spa-time-new.svg')}}" alt="SPA_TIME"/></a>
 					<li><a href="{{route('index')}}">Home</a></li>
-                    <li><a href="services-listing.html" class="main-link">Our Services</a>  
+                    <li><a href="{{route('OurServices')}}" class="main-link">Our Services</a>  
 		                  <!--<ul class="wsmenu-submenu largemenu">
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Massage</span></a></li>	 
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Body Scrub</span></a></li>
