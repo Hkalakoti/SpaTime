@@ -114,31 +114,30 @@
 						<div class="swiper-button-prev thumbs-button-prev"></div>
 					</div>
 				</div>
-
 				<div class="col-lg-7 col-md-12 col-sm-12">
 					<div class="product-description">
 						<h2>{{$data->first()->name}} by SPA TIME</h2>
-						<div class="price-detail">180 KWD</div>
+						<div class="price-detail">{{$data->price}}</div>
 
 						<h4>Select Size</h4>
 						<ul class="unstyled select-delivery select-qty-spa-time anim5">
 							<li>
-								<input class="styled-checkbox" id="qty1" name="time" type="radio" value="">
+								<input class="styled-checkbox" id="size" name="time" type="radio" value="1">
 								<label for="qty1"><span>100 ML</span></label>
 							</li>
 							<li>
-								<input class="styled-checkbox" id="qty2" name="time" type="radio" value="">
+								<input class="styled-checkbox" id="size" name="time" type="radio" value="2">
 								<label for="qty2"><span>150 ML</span></label>
 							</li>
 						</ul>
 
-						<h4>Description</h4>
+						<h4>Description</h4>	
 						<p>{{$data->first()->description}}</p>
 
 						<div class="add-to-favourite"><a href="javascript:void(0);" class="add-to-favourite-link fav-detail-btn featured-button-container w-313"><span class="featured-button-line"></span></a></div>
 						<div class="cart-buy-btns">
 							<button class="button detail-addtocart w-153">
-								<a href="shopping-cart.html">Add to Cart</a>
+								<a href="{{route('cart')}}">Add to Cart</a>
 							</button>
 							
 							<button class="button detail-addtocart w-153">

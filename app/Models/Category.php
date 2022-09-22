@@ -20,5 +20,5 @@ class Category extends Model
         'deleted_at',
     ];
 
-    public $timestamps = false;
+    public $timestamps = true;
 }

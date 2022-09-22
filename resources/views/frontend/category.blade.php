@@ -1,5 +1,6 @@
 @extends('frontend.layout')
 
+{{dd($data)}}
 <body>
     <section class="breadcrumb-inner breadcrumb-inner-page">
         <div class="padding-left-right">
@@ -19,12 +20,15 @@
                     <div class="col-12 carousel-div">
                         <h1 class="wow fadeInDown" data-wow-delay="0.2s" data-wow-duration="1.5s">Our Products</h1>
                         <div class="subsnavi-container-main tabs wow fadeInDown" data-wow-delay="0.4s" data-wow-duration="1s">
-                            <div class="subsNaviContainer swiper-container">
+                            
+                        <div class="subsNaviContainer swiper-container">
                                 <div class="swiper-wrapper navigate text-center">
 
+
                                     @foreach($data['category'] as $row)
-                                    <div class="swiper-slide scrollmove">
-                                        <a href="javascript:void(0);" role="1" id="{{$row->id}}" class="active">{{$row->name}}</a>
+                                    <div class="swiper-slide scrollmove" id="spa-container">   
+                                        <a href="javascript:void(0);" id="{{$row->id}}" class="{{$row->id === 1 ? 'active' : ''}}">{{$row->name}}</a> 
+                                        <!-- role=1 -->
                                     </div>
                                     @endforeach
                                 </div>
@@ -57,6 +61,3 @@
 
 </body>
 
-<script>
-        
-</script>

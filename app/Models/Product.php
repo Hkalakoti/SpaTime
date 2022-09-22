@@ -13,14 +13,17 @@ class Product extends Model
     protected $table = "products";
     
     protected $fillable = [
+        'category_id',
+        'title',
         'name',
+        'price',
+        'size',
         'description',
         'image',
         'status',
-        'date',
     ];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function category() 
     {

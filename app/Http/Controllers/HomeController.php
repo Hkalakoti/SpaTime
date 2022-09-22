@@ -150,4 +150,10 @@ class HomeController extends Controller
 
         return redirect()->route('contactUs');
     }
-}
+
+    public function cart(Request $request)
+    {
+
+        return view('frontend.shopping-cart');                                                                      
+    }                                               
+}                                       

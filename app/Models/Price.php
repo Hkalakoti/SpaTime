@@ -19,4 +19,6 @@ class Price extends Model
         'size',
         'description',
     ];
+
+    protected $timestamps = True;
 }

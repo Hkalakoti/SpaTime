@@ -17,6 +17,7 @@ class CategoryController extends Controller
         $data = []; 
         $data['category'] = Category::where('status', '=', 1)->get();
         $data['product'] = Product::with('category')->get();
+        
         return view('frontend.category',['data'=> $data]);
     }
 

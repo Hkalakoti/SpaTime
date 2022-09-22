@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class UserController extends Controller
 {
+    use HasFactory;
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
