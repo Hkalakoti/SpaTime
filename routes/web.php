@@ -44,7 +44,7 @@ Route::post('/Category/update','App\Http\Controllers\CategoryController@update')
 Route::get('/Category/delete/{id}','App\Http\Controllers\CategoryController@destroy')->name('categoryDestroy');
 
 // products
-Route::get('/products/list','App\Http\Controllers\ProductsController@products')->name('products');
+Route::get('/test/{id}','App\Http\Controllers\ProductsController@products')->name('productsID');
 Route::get('/products/Add','App\Http\Controllers\ProductsController@add')->name('productsAdd');
 Route::post('/products/Adding','App\Http\Controllers\ProductsController@adding')->name('productsAdding'); 
 Route::get('/products/manage','App\Http\Controllers\ProductsController@Manage')->name('productsManage');
@@ -60,13 +60,9 @@ Route::post('/signup','App\Http\Controllers\UserController@signup')->name('signu
 // e-commerce
 Route::get('/Shopping-cart','App\Http\Controllers\HomeController@cart')->name('cart');
 
-
-
-
-
 Route::get('/contact-us','App\Http\Controllers\HomeController@contactUs')->name('contactUs');
 Route::post('/contact-us','App\Http\Controllers\HomeController@contact_Us')->name('contact_us');
-
+Route::get('/Checkout','App\Http\Controllers\HomeController@checkout')->name('checkOut');
 
 Route::get('/OurServices','App\Http\Controllers\OurServicesController@view')->name('OurServices');
 Route::get('/OurServices/Add','App\Http\Controllers\OurServicesController@add')->name('ServicesAdd');

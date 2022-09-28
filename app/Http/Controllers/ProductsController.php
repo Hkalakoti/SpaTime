@@ -4,16 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductImage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-    public function products(Request $request)
-    {   
-        $data = Product::first();
+    public function products(request $request, $id)
+    {
+        $data = Product::get();
+        $data = Product::where('name', $request->name)->first();
 
-        return view('frontend.products',['data'=> $data]);
+         return view('frontend.products',['id' => $id,'data'=> $data]);
     }
 
     public function add()
@@ -26,15 +28,24 @@ class ProductsController extends Controller
     {   
         $data = [];
         $data['title'] = $request->title;
+        $data['slug'] = $request->slug;
         $data['name'] = $request->name;
         $data['price'] = $request->price;
         $data['size'] = $request->size;
         $data['category_id'] = $request->categoryid;
         $data['description'] = $request->description;
+        $data['image'] = '2022092805upload-error.png';
 
-        Product::insert($data);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = date('YmdH') . $file->getClientOriginalName();
+            $file->move(public_path('public/Image'), $filename);
+            $data['image'] = $filename;
 
-        return redirect()->route('productsManage');
+        }
+            Product:: insert($data);
+
+            return redirect()->route('productsManage');
     }
 
     public function manage()
@@ -64,10 +75,12 @@ class ProductsController extends Controller
         $data['size'] = $request->size;
         $data['status'] = $request->status;
 
-        // $data['status'] = $request->status;
-
-        //updates status iteratively
-        // Category::where('status', 1)->update(['status' => '0']);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = date('YmdH') . $file->getClientOriginalName();
+            $file->move(public_path('public/Image'), $filename);
+            $data['image'] = $filename;
+        }
 
         $data =  Product::where('id', $request->id)->update($data);
 

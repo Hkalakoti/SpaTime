@@ -151,7 +151,7 @@
 
 <script type="text/javascript" src="{{asset('js/jquery-3.4.1.slim.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery-1.12.4.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/bootstrap.bundle.min.js')}}"></script>		
+<script type="text/javascript" src="{{asset('../js/bootstrap.bundle.min.js')}}"></script>		
 <script type="text/javascript" src="{{asset('js/jpreloader.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/loader.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/wow.min.js')}}"></script>

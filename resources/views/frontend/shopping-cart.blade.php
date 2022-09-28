@@ -105,7 +105,7 @@
 						</div>
 	<hr>
 					<div class="cart-row cart-total">Grand Total : <span class="price-amt">51.400</span> KD</div>
-					<div class="cart-btn-div"><a href="checkout.html" class="black-button">Check Out Now</a></div>
+					<div class="cart-btn-div"><a href="{{route('checkOut')}}" class="black-button">Check Out Now</a></div>
 					</div>	
 				</div>
 			</div>	

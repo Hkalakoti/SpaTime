@@ -37,6 +37,7 @@ return array(
     'App\\Models\\ContactUs' => $baseDir . '/app/Models/ContactUs.php',
     'App\\Models\\Price' => $baseDir . '/app/Models/Price.php',
     'App\\Models\\Product' => $baseDir . '/app/Models/Product.php',
+    'App\\Models\\ProductImage' => $baseDir . '/app/Models/ProductImage.php',
     'App\\Models\\Services' => $baseDir . '/app/Models/Services.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

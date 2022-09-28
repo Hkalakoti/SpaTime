@@ -7,9 +7,9 @@
             <div class="card">
                 <div class="card-header" style="background-color: #007bff; padding:0 !important; padding-left:15px !important; padding-top:10px !important; color:white;">
                     <h3>Add Product</h3>
-                </div>
+                </div> 
                 <div class="card-body">
-                    <form method="POST" action="{{route('productsAdding')}}">
+                    <form method="POST" action="{{route('productsAdding')}}" enctype="multipart/form-data">
                         @csrf
 
                         <!-- title: -->
@@ -24,6 +24,11 @@
                             <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                         </div>
 
+                        <!-- slug -->
+                         <div class="form-group">
+                            <label for="slug">Category Slug</label>
+                            <input type="text" class="form-control" id="slug" name="slug" placeholder="Category Slug">
+                        </div>
                         <!-- Price: -->
                         <div class="form-group">
                             <label for="name">Price</label>
@@ -54,7 +59,7 @@
                         <!-- Image: -->
                         <div class="mb-3">
                             <label for="image" class="form-label">Image</label>
-                            <input class="form-control form-control-sm" name="image" id="image" style="padding: 10px 20px 10px 20px; height:100%;" type="file">
+                            <input type="file" class="form-control form-control-sm" name="image" id="image" style="padding: 10px 20px 10px 20px; height:100%;">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

@@ -5,13 +5,14 @@
     <div class="row">
     <div class="col-lg-12">
 @include('flash-messages')
-
+@include('user')
 <table class="table" style="text-align: center !important ;">
   <caption> Category list </caption>
   <thead>
     <tr>
       <th scope="col">id</th>
       <th scope="col">name</th>
+      <th scope="col">category_slug</th>
       <th scope="col">status</th>
       <th scope="col">date</th>
       <th scope="col">action</th>
@@ -23,6 +24,7 @@
        <tr>
            <td>{{ ++$i }}</td>
            <td>{{ $row->name }}</td>
+           <td>{{ $row->category_slug }}</td>
           <td> 
             <button class="{{ $row->status ? 'btn btn-success active-button' : 'btn btn-danger active-button' }}" role="button" data-onstyle="activated" data-offstyle="deactivated" data-bs-toggle="button"> {{ $row->status ? 'Active' : 'Inactive' }} </a></button>
             <td>{{ $row->date }}</td>

@@ -17,7 +17,7 @@ class CategoryController extends Controller
         $data = []; 
         $data['category'] = Category::where('status', '=', 1)->get();
         $data['product'] = Product::with('category')->get();
-        
+
         return view('frontend.category',['data'=> $data]);
     }
 
@@ -30,10 +30,10 @@ class CategoryController extends Controller
     {
         $data = [];
         $data['name'] = $request->name;
+        $data['category_slug'] = $request->slug;
         $data['date'] = Carbon::now();
 
         Category::create($data);
-
         return redirect()->route('categoryManage');
     }
 
@@ -59,12 +59,10 @@ class CategoryController extends Controller
     {
         $data = [];
         $data['name'] = $request->name;
-        $dataPacket['status'] = $request->status;
+        $data['category_slug'] = $request->slug;
+        $data['status'] = $request->status;
 
-        //updates status iteratively
-        // Category::where('status', 1)->update(['status' => '0']);
-
-        $data =  Category::where('id', $request->id)->update($dataPacket);
+        $data =  Category::where('id', $request->id)->update($data);
 
         return redirect()->route('categoryManage')->with('success', 'Record edited successfully!', array('timeout' => 3));
     }
@@ -76,6 +74,4 @@ class CategoryController extends Controller
     }
 
     // Admin category manage functions end
-
-
 }

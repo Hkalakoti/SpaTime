@@ -153,7 +153,11 @@ class HomeController extends Controller
 
     public function cart(Request $request)
     {
-
         return view('frontend.shopping-cart');                                                                      
-    }                                               
+    }      
+    
+    public function checkout(Request $request)
+    {
+        return view('frontend.checkout');                                                                      
+    }                      
 }                                       
