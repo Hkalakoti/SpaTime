@@ -33,6 +33,12 @@ class CategoryController extends Controller
         $data['category_slug'] = $request->slug;
         $data['date'] = Carbon::now();
 
+
+        $validate = $request->validate([
+            'category_slug' => ['required'],
+            'name' => ['required'],
+        ]);
+
         Category::create($data);
         return redirect()->route('categoryManage');
     }

@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row ml-auto">
         <div class="col-lg-6">
+@include('flash-messages')
             <div class="card">
                 <div class="card-header" style="background-color: #007bff; padding:0 !important; padding-left:15px !important; padding-top:10px !important; color:white;">
                     <h3>Add Product</h3>

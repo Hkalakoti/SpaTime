@@ -1699,7 +1699,7 @@ span.confim-mins{float:right;color:#000;}
 .cart-des a img {transform:scale(1);transition:all 1s ease 0s}
 .cart-des a:hover img {transform:scale(1.2)}
 .cart-img,.delete-div a{display:inline-block;font-family: 'Open Sans', sans-serif;}
-.item-title-cart 	{display:inline-block;color:#525252;font-size:23px;margin-left:-5rem;margin-top: 0rem;font-weight: 600;line-height:60px;}
+.item-title-cart 	{display:inline-block;color:#525252;font-size:23px;margin-left:6rem;margin-top: 0rem;font-weight: 600;line-height:60px;}
 .cart-des h6{font-weight: 600;}
 span.product-small-brief {color: #215891;font-weight:600;}
 .cart-qnty-price div{color:#525252;vertical-align:middle;display:inline-block;font-family: 'Open Sans', sans-serif;}

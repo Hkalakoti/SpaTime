@@ -22,7 +22,7 @@
                             <div class="swiper-wrapper navigate text-center">
                                 @foreach ($data['category'] as $row)
                                 <div class="swiper-slide scrollmove">
-                                    <a href="#" onclick="javascript:myfunction(); return false" id="test" role="1" class="{{$row->id === 1 ? 'active' : '' }}"> {{$row->name}}</a>
+                                    <a href="#" id="test" role="1" class="{{$row->id === 1 ? 'active' : '' }}"> {{$row->name}}</a>
                                 </div>
                                 @endforeach
                             </div>
@@ -32,32 +32,40 @@
             </div>
         </div>
     </div>
-    <div class="special-pricing tabs-container wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.5s">
-        <div class="tabs-cont" id="1">
-            <div class="row d-flex justify-content-center text-center">
-                @foreach ($data['product'] as $row)
-                @if ($row->status == 1)
-                <div class="col-6 col-lg-3 col-md-4 col-sm-6 category-listing-row">
-                    <div class="category-listing category-listing-pro">
-                        <a href="{{route('productsID', ['id' => $row->id])}}">
-                            <img src="{{url('public/Image/'.$row->image)}}" class="img-fluid" alt="Error">
-                            <p>{{$row->name}}</p>
-                        </a>
-                    </div>
+
+    <div class="tabs-cont1" id="1">
+        <div class="row d-flex justify-content-center text-center">
+            @foreach ($data['product'] as $row)
+            @if ($row->status == 1)
+            <div class="col-lg-4 col-md-4 col-sm-6 category-listing-row" >
+                <div class="category-listing category-listing-pro" >
+                    <a href="{{route('productsID', ['id' => $row->id])}}">
+                        <img src="{{url('public/Image/'.$row->image)}}" class="img-fluid" alt="Error">
+                        <p>{{$row->name}}</p>
+                    </a>
                 </div>
-                @endif
-                @endforeach
             </div>
+            @endif
+            @endforeach
         </div>
+    </div>
     </div>
 </section>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+
 <script>
-    $(document).load(function() {
-        $('test').click(function myfunction() {
-            alert('test');
-        });
+$(document).ready(function(){
+    $("#category-listing").fadeTo("slow", 0.15);
+    $("#div2").fadeTo("slow", 0.4);
+    $("#div3").fadeTo("slow", 0.7);
+  });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("div").children("special-pricing.tabs-cont1");
     });
 </script>

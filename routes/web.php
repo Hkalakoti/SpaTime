@@ -21,7 +21,6 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', 'App\Http\Controllers\HomeController@home')->name('home');
 
-
 Auth::routes();
 
 Route::group(['middleware' => 'disable_back_btn'], function(){
@@ -66,6 +65,11 @@ Route::get('/Checkout','App\Http\Controllers\HomeController@checkout')->name('ch
 
 Route::get('/OurServices','App\Http\Controllers\OurServicesController@view')->name('OurServices');
 Route::get('/OurServices/Add','App\Http\Controllers\OurServicesController@add')->name('ServicesAdd');
+
+// coupons
+Route::get('/Coupon/Add','App\Http\Controllers\CouponController@add')->name('couponAdd');
+Route::post('/Coupon/Adding','App\Http\Controllers\CouponController@adding')->name('couponAdding');
+Route::get('/Coupon/Manage','App\Http\Controllers\CouponController@manage')->name('couponManage');
 
 // data table
 Route::get('/users', [UserController::class, 'index'])->name('users.index');

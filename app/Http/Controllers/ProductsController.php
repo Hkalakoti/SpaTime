@@ -7,25 +7,27 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProductsController extends Controller
 {
-    public function products(request $request, $id)
+    public function products($id)
     {
         $data = Product::get();
-        $data = Product::where('name', $request->name)->first();
+        $data = Product::where('id', $id)->first();
+        $datas = Product::select('price', 'size', 'id')->where('name', $data->name, $id)->get();
 
-         return view('frontend.products',['id' => $id,'data'=> $data]);
+        return view('frontend.products', ['id' => $id, 'data' => $data, 'datas' => $datas]);
     }
 
     public function add()
-    {   
+    {
         $data = Category::get();
-        return view('backend.products.add',['data' => $data]);
+        return view('backend.products.add', ['data' => $data]);
     }
 
     public function adding(Request $request)
-    {   
+    {
         $data = [];
         $data['title'] = $request->title;
         $data['slug'] = $request->slug;
@@ -34,6 +36,8 @@ class ProductsController extends Controller
         $data['size'] = $request->size;
         $data['category_id'] = $request->categoryid;
         $data['description'] = $request->description;
+
+        // default image if image is not uploaded
         $data['image'] = '2022092805upload-error.png';
 
         if ($request->hasFile('image')) {
@@ -41,31 +45,46 @@ class ProductsController extends Controller
             $filename = date('YmdH') . $file->getClientOriginalName();
             $file->move(public_path('public/Image'), $filename);
             $data['image'] = $filename;
-
         }
-            Product:: insert($data);
 
-            return redirect()->route('productsManage');
+        $db = Product::select('size')->where('name', $request->name)->get();
+
+        foreach ($db as $row) {
+            if ($data['size'] === $row->size) {
+                echo $row->size;
+                return redirect()->route('productsAdd')->with('error', 'Product size already exists in the database');
+            }
+        }
+
+        $validate = $request->validate([
+            'title' => ['required'],
+            'slug' => ['required'],
+            'name' => ['required'],
+            'description' => ['required', 'max:255'],
+        ]);
+
+        Product::insert($data);
+        return redirect()->route('productsManage');
     }
 
     public function manage()
-    {   
+    {
         $data = Product::get();
-        return view('backend.products.manage',['data' => $data]);
+        return view('backend.products.manage', ['data' => $data]);
     }
 
     public function edit($id)
-    {   
+    {
         $data = [];
         $data = Product::get();
         $test = Category::get();
         $data = Product::where('id', $id)->first(); //send specific id entry from DB (first()-> takes a row from db)
-        
-        return view('backend.products.edit' , ['id' => $id,'data' => $data, 'test' => $test]);
+
+        return view('backend.products.edit', ['id' => $id, 'data' => $data, 'test' => $test]);
     }
 
     public function update(Request $request)
-    {   
+    {
         $data = [];
         $data['title'] = $request->title;
         $data['name'] = $request->name;
@@ -88,7 +107,7 @@ class ProductsController extends Controller
     }
 
     public function destroy($id)
-    {   
+    {
         Product::find($id)->delete();
         return redirect()->back()->with('error', 'Record deleted successfully');
     }

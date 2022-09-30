@@ -55,6 +55,13 @@ class HomeController extends Controller
         $dataPacket['status'] = $request->status;
 
 
+        $validate = $request->validate([
+
+            'name' => ['required'],
+            'description' => ['required'],
+            'status' => ['required'],
+        ]);
+        
         if ($request->file('image')) {
             $file = $request->file('image');
             $filename = date('YmdH') . $file->getClientOriginalName();
@@ -63,6 +70,7 @@ class HomeController extends Controller
         }
         
         Banner::where('status', 1)->update(['status' => '0']);
+
 
         $data = Banner::create($dataPacket);
         
