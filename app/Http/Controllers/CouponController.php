@@ -30,8 +30,7 @@ class CouponController extends Controller
         ]);
 
         Coupon::insert($data);
-
-        return route('couponManage');
+        return route('couponManage',['data' => $data]);
     }
 
     public function manage()

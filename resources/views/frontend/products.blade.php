@@ -15,32 +15,41 @@
     <div class="container-fluid text-center">
       <h1 class="wow fadeInDown" data-wow-delay="0.2s" data-wow-duration="1.5s">{{$data->name}}</h1>
       <div class="row">
-        <div class="col-lg-5 col-md-12 col-sm-12">
-          <div class="gallery-main">
-            <div class="swiper-container gallery-top">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="gallery-large" data-src="" data-fancybox="gallery">
-                    <img src="{{url('public/Image/'.$data->image)}}" alt="gallery">
-                  </div>
+        <!-- <div class="col-lg-5 col-md-12 col-sm-12" id="gallery"> -->
+                    <!-- <img src="{{url('public/Image/'.$data->image)}}" alt="gallery"> -->
+        <div class="col-lg-5 col-md-12 col-sm-12" id="gallery">
+					<div class="gallery-main">
+						<div class="swiper-container gallery-top">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+                  <div class="gallery-large" data-src="images/details/05.jpg" data-fancybox="gallery"><img src="{{url('public/Image/'.$data->image)}}" alt="gallery"></div>
                 </div>
-              </div>
-              <div class="swiper-button-next gallery-button-next"></div>
-              <div class="swiper-button-prev gallery-button-prev"></div>
-            </div>
-          </div>
-          <div class="swiper-button-next thumbs-button-next"></div>
-          <div class="swiper-button-prev thumbs-button-prev"></div>
-        </div>
-        <div class="col-lg-7 col-md-12 col-sm-12">
+							</div>
+							<div class="swiper-button-next gallery-button-next"></div>
+							<div class="swiper-button-prev gallery-button-prev"></div>
+						</div>
+					</div>
+					<div class="gallery-thumnail-gallery">
+						<div class="thumnail-gallery">
+							<div class="swiper-container gallery-thumbs">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img src="{{url('public/Image/'.$data->image)}}" alt="gallery"></div>
+								</div>
+							</div>
+						</div>	
+						<div class="swiper-button-next thumbs-button-next"></div>
+						<div class="swiper-button-prev thumbs-button-prev"></div>
+					</div>	
+				</div>            
+        <div class="col-lg-7 col-md-12 col-sm-12" id="info">
           <div class="product-description">
             <h2>{{$data->name}} by SPA TIME</h2>
             <div id="price" class="price-detail">{{$data->price}} KWD</div>
             <h4>Select Size</h4>
             <ul class="unstyled select-delivery select-qty-spa-time anim5">
-                @foreach ($datas as $row)
+              @foreach ($datas as $row)
               <li>
-              <input onclick="document.getElementById('price').innerHTML='{{$row->price}} KWD'" class="styled-checkbox" id="{{$row->id}}" name="time" type="radio" value="">
+                <input onclick="document.getElementById('price').innerHTML='{{$row->price}} KWD'" class="styled-checkbox" id="{{$row->id}}" name="time" type="radio" value="">
                 <label for="{{$row->id}}"><span>{{$row->size}} ML</span></label>
               </li>
               @endforeach
@@ -54,7 +63,7 @@
             </div>
             <div class="cart-buy-btns">
               <button class="button detail-addtocart w-153">
-                <a href="{{route('cart')}}">Add to Cart</a>
+                <a onclick="add()" >Add to Cart</a>
               </button>
               <button class="button detail-addtocart w-153">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -68,3 +77,17 @@
   </div>
   </div>
 </section>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    function add () {
+        $.ajax({
+            url:"/Addtocart/{id}",    //the page containing php script
+            type: "post",    //request type,
+            dataType: 'json',
+            success:function(result){
+                console.log(result.abc);
+            }
+        });
+    }
+</script>

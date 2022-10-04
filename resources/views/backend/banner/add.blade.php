@@ -22,7 +22,7 @@
             <!-- Description: -->
             <div class="mb-3">
               <label for="description" class="form-label">Description</label>
-              <textarea class="form-control" name="description" id="description" rows="8"></textarea>
+              <textarea class="form-control" name="description" id="description" placeholder="Description" rows="8"></textarea>
             </div>
 
             <!-- Image: -->

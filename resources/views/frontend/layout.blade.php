@@ -60,14 +60,14 @@
 					<a href="{{route('index')}}" class="spa-time spa-time-mobile-logo"><img src="{{asset('images/spa-time-new.svg')}}" alt="SPA_TIME"/></a>
 					<li><a href="{{route('index')}}">Home</a></li>
                     <li><a href="{{route('OurServices')}}" class="main-link">Our Services</a>  
-		                  <!--<ul class="wsmenu-submenu largemenu">
+		                  <ul class="wsmenu-submenu largemenu">
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Massage</span></a></li>	 
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Body Scrub</span></a></li>
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Facial</span></a></li>
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Body Treatment</span></a></li>
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Additional Program</span></a></li>
 		                     <li class="all-product-main"><a href="javascript:void(0)"><span>Bridal</span></a></li>
-		                 </ul>-->
+		                 </ul>
 		            </li>
 					<li><a href="{{route('category')}}" class="main-link">Our Products</a>
 		                  <!--<ul class="wsmenu-submenu largemenu">
@@ -85,7 +85,7 @@
 		            <li class="mobile-link-hide"><a href="javascript:void(0);" class="main-link cart-link cart-link-mobile"><img src="{{asset('images/basket.png')}}" class="img-fluid basket-img" alt="Basket"></a>
 					<ul class="wsmenu-submenu wsmenu-cart-booking">
 		               <li><a href="my-cart.html">Spa Booking</a></li>
-					   <li><a href="shopping-cart.html">Product Cart</a></li>
+					   <li><a href="{{route('cart')}}">Product Cart</a></li>
 		             </ul>
 					</li>	
 				</ul>

@@ -12,7 +12,6 @@ class Coupon extends Model
     protected $table = 'coupons';
 
     protected $fillable = [
-
         'name',
         'code',
         'no_of_users',
@@ -21,7 +20,5 @@ class Coupon extends Model
         'amount',
         'min_amount',
         'status',
-
     ];
-
 }

@@ -21,7 +21,7 @@ class Product extends Model
         'size',
         'description',
         'image',
-        'counter',
+        'in_stock',
         'status',
     ];
 

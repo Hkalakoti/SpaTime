@@ -57,10 +57,13 @@ Route::get('/home','App\Http\Controllers\HomeController@index')->name('index');
 Route::post('/signup','App\Http\Controllers\UserController@signup')->name('signup');
 
 // e-commerce
-Route::get('/Shopping-cart','App\Http\Controllers\HomeController@cart')->name('cart');
+Route::get('/Shopping-cart','App\Http\Controllers\CartController@cart')->name('cart');
+Route::get('/Addtocart/{id}','App\Http\Controllers\CartController@add')->name('cartAdd');
+Route::get('/Addingtocart','App\Http\Controllers\CartController@adding')->name('cartAdding');
 
 Route::get('/contact-us','App\Http\Controllers\HomeController@contactUs')->name('contactUs');
 Route::post('/contact-us','App\Http\Controllers\HomeController@contact_Us')->name('contact_us');
+
 Route::get('/Checkout','App\Http\Controllers\HomeController@checkout')->name('checkOut');
 
 Route::get('/OurServices','App\Http\Controllers\OurServicesController@view')->name('OurServices');

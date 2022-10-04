@@ -48,7 +48,6 @@
 @include('layouts.footer')
 @endsection
 
-
 <script>
   $(function() {
     $('.active-button').change(function() {

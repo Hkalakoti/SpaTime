@@ -1,13 +1,25 @@
 @extends('frontend.layout')
-<br>
-<br>
-<br>
+
+<section class="breadcrumb-inner breadcrumb-inner-page">
+    <div class="padding-left-right">
+        <div class="container-fluid">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
 <section class="services-listing">
     <div class="padding-left-right">
         <div class="container text-center">
             <h1 class="wow fadeInDown" data-wow-delay="0.2s" data-wow-duration="1.5s">Checkout</h1>
             <div class="row row-spa-time-cart">
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+
+@include('flash-messages')
+
 
                     <div class="cart-row-divider">
                         <h4 class="cart-summary-cart">Cart Summary</h4>

@@ -39,7 +39,6 @@ class HomeController extends Controller
     }
 
     //Admin banner manage functions
-
     public function bannerAdd()
     {
         return view('backend.banner.add');
@@ -53,7 +52,6 @@ class HomeController extends Controller
         $dataPacket['description'] = $request->description;
         $dataPacket['date'] = Carbon::now();
         $dataPacket['status'] = $request->status;
-
 
         $validate = $request->validate([
 
@@ -159,11 +157,7 @@ class HomeController extends Controller
         return redirect()->route('contactUs');
     }
 
-    public function cart(Request $request)
-    {
-        return view('frontend.shopping-cart');                                                                      
-    }      
-    
+
     public function checkout(Request $request)
     {
         return view('frontend.checkout');                                                                      
