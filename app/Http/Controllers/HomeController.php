@@ -161,5 +161,11 @@ class HomeController extends Controller
     public function checkout(Request $request)
     {
         return view('frontend.checkout');                                                                      
-    }                      
+    }         
+    
+    public function coco()
+    {
+        return view('coco');
+
+    }
 }                                       

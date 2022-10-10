@@ -18,6 +18,7 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/coco', 'App\Http\Controllers\HomeController@coco')->name('coco');
 
 Route::get('/', 'App\Http\Controllers\HomeController@home')->name('home');
 
@@ -58,8 +59,10 @@ Route::post('/signup','App\Http\Controllers\UserController@signup')->name('signu
 
 // e-commerce
 Route::get('/Shopping-cart','App\Http\Controllers\CartController@cart')->name('cart');
-Route::get('/Addtocart/{id}','App\Http\Controllers\CartController@add')->name('cartAdd');
-Route::get('/Addingtocart','App\Http\Controllers\CartController@adding')->name('cartAdding');
+Route::get('/addToCart','App\Http\Controllers\CartController@cartAdd')->name('cartAdd');
+Route::get('/lost','App\Http\Controllers\CartController@adding')->name('test');
+Route::get('/delete-item/{id}', 'App\Http\Controllers\CartController@destroy')->name('cartDestroy');
+
 
 Route::get('/contact-us','App\Http\Controllers\HomeController@contactUs')->name('contactUs');
 Route::post('/contact-us','App\Http\Controllers\HomeController@contact_Us')->name('contact_us');

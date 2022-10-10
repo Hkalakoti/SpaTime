@@ -37,9 +37,9 @@
 </div>
 @endif
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <script>
-
 $(function() {
 var timeout = 3000; // in miliseconds (3*1000)
 $(".alert").delay(5000).fadeOut(300);
