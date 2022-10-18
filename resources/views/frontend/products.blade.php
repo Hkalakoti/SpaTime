@@ -1,5 +1,6 @@
 @extends('frontend.layout')
 @include('flash-messages')
+
 <section class="breadcrumb-inner breadcrumb-inner-page">
   <div class="padding-left-right">
     <div class="container-fluid">
@@ -23,7 +24,7 @@
             <div class="swiper-container gallery-top">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <div class="gallery-large" data-src="images/details/05.jpg" data-fancybox="gallery"><img src="{{url('public/Image/'.$data->image)}}" alt="gallery"></div>
+                  <div class="gallery-large" data-src="" data-fancybox="gallery"><img src="{{url('public/Image/'.$data->image)}}" alt="gallery"></div>
                 </div>
               </div>
               <div class="swiper-button-next gallery-button-next"></div>
@@ -50,7 +51,7 @@
             <ul class="unstyled select-delivery select-qty-spa-time anim5">
               @foreach ($datas as $row)
               <li>
-                <input onclick="document.getElementById('price').innerHTML='{{$row->price}} KWD'" class="styled-checkbox" id="{{$row->id}}" name="time" type="radio" value="">
+                <input onclick="document.getElementById('price').innerHTML='{{$row->price}} KWD'" class="styled-checkbox" id="{{$row->id}}" name="time" type="radio" >
                 <label for="{{$row->id}}"><span>{{$row->size}} ML</span></label>
               </li>
               @endforeach

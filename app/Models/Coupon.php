@@ -21,4 +21,7 @@ class Coupon extends Model
         'min_amount',
         'status',
     ];
+
+    public $timestamps = false;
+
 }

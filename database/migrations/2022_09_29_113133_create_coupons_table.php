@@ -19,7 +19,7 @@ class CreateCouponsTable extends Migration
             $table->string('code');
             $table->string('no_of_users');
             $table->string('no_of_times');
-            $table->string('discount type');
+            $table->string('discount_type');
             $table->string('amount');
             $table->string('min amount');
             $table->boolean('status');

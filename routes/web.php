@@ -1,12 +1,8 @@
 <?php
 
-use App\Http\Controllers\OurServices;
-use App\Models\Banner;
-use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +14,10 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/coco', 'App\Http\Controllers\HomeController@coco')->name('coco');
 
 Route::get('/', 'App\Http\Controllers\HomeController@home')->name('home');
+Route::get('/home','App\Http\Controllers\HomeController@index')->name('index');
+
 
 Auth::routes();
 
@@ -54,28 +51,34 @@ Route::get('/products/delete/{id}','App\Http\Controllers\ProductsController@dest
 
 
 // home and defaults
-Route::get('/home','App\Http\Controllers\HomeController@index')->name('index');
 Route::post('/signup','App\Http\Controllers\UserController@signup')->name('signup');
 
 // e-commerce
+
+    // cart
 Route::get('/Shopping-cart','App\Http\Controllers\CartController@cart')->name('cart');
 Route::get('/addToCart','App\Http\Controllers\CartController@cartAdd')->name('cartAdd');
-Route::get('/lost','App\Http\Controllers\CartController@adding')->name('test');
-Route::get('/delete-item/{id}', 'App\Http\Controllers\CartController@destroy')->name('cartDestroy');
+Route::get('/update-item/{id}','App\Http\Controllers\CartController@update')->name('cartUpdate');
+Route::get('/delete-item', 'App\Http\Controllers\CartController@destroy')->name('cartDestroy');
 
-
+    // ContactUs
 Route::get('/contact-us','App\Http\Controllers\HomeController@contactUs')->name('contactUs');
 Route::post('/contact-us','App\Http\Controllers\HomeController@contact_Us')->name('contact_us');
 
-Route::get('/Checkout','App\Http\Controllers\HomeController@checkout')->name('checkOut');
+    // checkout
+Route::get('/Checkout','App\Http\Controllers\HomeController@checkout')->name('check_out');
 
+    // Services
 Route::get('/OurServices','App\Http\Controllers\OurServicesController@view')->name('OurServices');
 Route::get('/OurServices/Add','App\Http\Controllers\OurServicesController@add')->name('ServicesAdd');
 
-// coupons
+    // coupons
 Route::get('/Coupon/Add','App\Http\Controllers\CouponController@add')->name('couponAdd');
 Route::post('/Coupon/Adding','App\Http\Controllers\CouponController@adding')->name('couponAdding');
+Route::get('/Coupon/Delete/{id}', 'App\Http\Controllers\CouponController@destroy')->name('couponDestroy');
 Route::get('/Coupon/Manage','App\Http\Controllers\CouponController@manage')->name('couponManage');
+Route::get('/Coupon/Edit/{id}','App\Http\Controllers\CouponController@edit')->name('couponEdit');
+Route::post('/Coupon/update','App\Http\Controllers\CouponController@update')->name('couponUpdate');
 
 // data table
 Route::get('/users', [UserController::class, 'index'])->name('users.index');

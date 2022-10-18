@@ -3,15 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
-use App\Models\Category;
-use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ContactUs;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -70,7 +66,7 @@ class HomeController extends Controller
         Banner::where('status', 1)->update(['status' => '0']);
 
 
-        $data = Banner::create($dataPacket);
+        Banner::create($dataPacket);
         
         return redirect()->route('bannerManage');
     }
@@ -86,7 +82,6 @@ class HomeController extends Controller
 
     public function edit(Request $request, $id)
     {
-
         $dataPacket = [];
         $dataPacket = Banner::get();
         $dataPacket = Banner::where('id', $id)->first(); //send specific id entry from DB (first()-> takes a row from db)
@@ -138,6 +133,11 @@ class HomeController extends Controller
         return view('frontend.index', ['id' => $request->id, 'data' => $data]);
     }
 
+    public function checkout(Request $request)
+    {
+        return view('frontend.checkout');
+    }
+
     public function ContactUs(Request $request)
     {
         return view('frontend.contactUs');
@@ -157,15 +157,4 @@ class HomeController extends Controller
         return redirect()->route('contactUs');
     }
 
-
-    public function checkout(Request $request)
-    {
-        return view('frontend.checkout');                                                                      
-    }         
-    
-    public function coco()
-    {
-        return view('coco');
-
-    }
 }                                       

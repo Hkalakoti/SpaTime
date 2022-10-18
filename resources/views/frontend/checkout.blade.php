@@ -1,5 +1,4 @@
 @extends('frontend.layout')
-
 <section class="breadcrumb-inner breadcrumb-inner-page">
     <div class="padding-left-right">
         <div class="container-fluid">
@@ -29,8 +28,8 @@
                                     <div class="coupon-div">
                                         <div class="coupon-left"><img src="{{asset('images/icon-percentage.png')}}" alt=""> Coupon Code / Voucher Code</div>
                                         <div class="coupon-right">
-                                            <input type="text" class="form-control" name="" id="" value="">
-                                            <button class="button">Apply</button>
+                                            <input type="text" class="form-control" name="" id="" value="" disabled>
+                                            <button class="button">Applied</button>
                                         </div>
                                     </div>
                                 </li>

@@ -22,7 +22,7 @@
                             <div class="swiper-wrapper navigate text-center">
                                 @foreach ($data['category'] as $row)
                                 <div class="swiper-slide scrollmove">
-                                    <a href="#" id="test" role="1" class="{{$row->id === 1 ? 'active' : '' }}"> {{$row->name}}</a>
+                                    <a href="#" onclick="handleCategoryProduct(<?php echo $row->id?>)" role="1" class="{{$row->id === 1 ? 'active' : '' }}"> {{$row->name}}</a>
                                 </div>
                                 @endforeach
                             </div>
@@ -32,11 +32,12 @@
             </div>
         </div>
     </div>
-
-    <div class="tabs-cont1" id="1">
+    <div class="tabs-cont1" id="2">
         <div class="row d-flex justify-content-center text-center">
+            <!-- @php $tempProducts = array_filter($data['product'],function ($var) { $var->category_id & 1 }) -->
             @foreach ($data['product'] as $row)
-            @if ($row->status == 1)
+        @if ($row->category[0]['id'] == 1)
+        @if ($row->status == 1)
             <div class="col-lg-4 col-md-4 col-sm-6 category-listing-row" >
                 <div class="category-listing category-listing-pro" >
                     <a href="{{route('productsID', ['id' => $row->id])}}">
@@ -45,27 +46,29 @@
                     </a>
                 </div>
             </div>
-            @endif
+            @endif 
+        @endif
+           
             @endforeach
         </div>
     </div>
     </div>
 </section>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-
-
+</style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+ 
 <script>
-$(document).ready(function(){
-    $("#category-listing").fadeTo("slow", 0.15);
-    $("#div2").fadeTo("slow", 0.4);
-    $("#div3").fadeTo("slow", 0.7);
-  });
-</script>
+var Products = <?php echo json_encode($data['product'][0]['id']); ?>;
 
-<script>
-    $(document).ready(function() {
-        $("div").children("special-pricing.tabs-cont1");
-    });
+let filterProducts =[]
+
+function handleCategoryProduct(id) {
+
+ filterProducts = Products?.filter(item=>item.category_id === parseInt(id))
+
+console.log(filterProducts)
+
+}
+
 </script>

@@ -1593,7 +1593,8 @@ p.date-select{font-family: 'Open Sans', sans-serif;}
 .select-delivery-spa-time.unstyled li label span{padding:10px;}
 
 ul,ol,li,pre,form,blockquote,fieldset,input,p, select, label, button, textarea,section{margin:0px;list-style:none;padding:0;vertical-align:top;border-radius:0}
-input,select,textarea{border:1px solid #fff;font-family: 'Open Sans', sans-serif;padding:5px;color:#000000;background:#fff;font-size:14px;line-height:normal;border-radius:0px;}
+input,select,textarea{border:1px solid #fff;font-family: 'Open Sans', sans-serif;padding:5px;color:#000000;background:#fff;font-size:14px;line-height:30px;border-radius:0px;}
+input{ width: 506px;}
 input:focus, select:focus, textarea:focus,input:hover, select:hover, textarea:hover,.dd:hover .ddTitle,.dd:focus .ddTitle{font-family: 'Open Sans', sans-serif;border:1px solid #dfd2af!important;background:#f4ecdc!important;}
 .form-control:focus {outline:none;box-shadow:none;}
 
@@ -1717,7 +1718,7 @@ span.product-small-brief {color: #215891;font-weight:600;}
 .cart-qnty-price .total-count{font-size:24px;width:45px;}
 
 .line-gold{border-top: 1px solid #444;margin-top: 1rem;padding-bottom: 1rem;}
-.discount-cont-inner{width:40%;}
+.discount-cont-inner{width:57%;}
 
 
 .appointment-box{text-align:center;font-family: 'Open Sans', sans-serif;}

@@ -21,24 +21,36 @@
 
                         <!-- code -->
                         <div class="form-group">
-                            <label for="slug">Code</label>
+                            <label for="code">Code</label>
                             <input type="text" class="form-control" id="code" name="code" placeholder="Code">
                         </div>
 
-                        <!-- Discount_type: -->
+                        <!-- No of times -->
+                        <div class="form-group">
+                            <label for="no_of_times">No of times</label>
+                            <input type="text" class="form-control" id="no_of_times" name="no_of_times" placeholder="No of times">
+                        </div>
+
+                        <!-- code -->
+                        <div class="form-group">
+                            <label for="no_of_users">No of users</label>
+                            <input type="text" class="form-control" id="no_of_users" name="no of users" placeholder="No of users">
+                        </div>
+
+                        <!-- Amount: -->
                         <div class="mb-3">
-                            <label for="description" class="form-label">Discount Type</label>
-                            <input type="text" class="form-control" id="discount_type" name="discount_type" placeholder="Discount Type">
+                            <label for="amount" class="form-label">Amount </label>
+                            <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount (In KWD or %)" >
                         </div>
 
                         <!-- Min Amount: -->
                         <div class="mb-3">
-                            <label for="description" class="form-label">Min Amount </label>
-                            <input type="text" class="form-control" id="min_amount" name="min_amount" placeholder="Min Amount">
+                            <label for="min_amount" class="form-label">Min Amount </label>
+                            <input type="text" class="form-control" id="min_amount" name="min_amount" placeholder="Min Amount (In KWD)">
                         </div>
 
                         <!-- Status: -->
-                        <label for="formFileSm" class="form-label">Status</label>
+                        <label for="status" class="form-label">Status</label>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="status" id="active" value="1">
                             <label class="form-check-label" for="status">Active</label>
@@ -47,8 +59,15 @@
                             <input class="form-check-input" type="radio" id="inactive" name="status" value="0">
                             <label class="form-check-label" for="status">Inactive</label>
                         </div>
-    <br>
-    <br>
+
+                        <!-- Discount_type: -->
+                        <label for="discount_type">Discount Type</label>
+                        <select name="discount_type" id="discount_type">
+                            <option value="percentage"> Percentage</option>
+                            <option value="flat">Flat</option>
+                        </select>
+                        <br>
+                        <br>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

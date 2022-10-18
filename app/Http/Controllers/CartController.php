@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Coupon;
+use App\Models\Price;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -13,18 +16,10 @@ class CartController extends Controller
         $data = Cart::where('user_id', $id)
             ->with('product')
             ->get();
+        
+        $coupon = Coupon::get();
 
-            function total($data)
-            {   
-                foreach ($data as $key => $data) {
-                    foreach ($data['product'] as $product) {
-                        }
-                    }
-                }
-                // return $total;
-        $total =  total($data);  
-        // dd($data[0]['product'][0]['status']);
-        return view('frontend.shopping-cart', ['data' => $data],['total' => $total]);
+        return view('frontend.shopping-cart', ['data' => $data],['coupon'=> $coupon]);
     }
 
     public function cartAdd(Request $request)
@@ -34,18 +29,19 @@ class CartController extends Controller
         $data['user_id'] = auth()->user()->id;
 
         $query = Cart::create($data);
-
         
         return 'Added to cart';
     }
 
-    public function adding(Request $request)
-    {
+    public function update(Request $request)
+    {   
+        $cart = session()->get('cart');
+        dd($cart);
     }
 
-    public function destroy($id){
+    public function destroy(Request $request){
 
-        Cart::find($id)->delete($id);
+        Cart::find($request->id)->delete($request->id);
         return back()->with('error','Item removed');
     }
 
