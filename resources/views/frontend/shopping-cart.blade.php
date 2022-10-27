@@ -29,7 +29,7 @@
 				</div>
 				@if(count($data) > 0)
 				@foreach ($data as $row)
-				<div class="col-lg-12 col-md-11 col-sm-11 col-xs-11 cart-row">
+				<div class="col-lg-12 col-md-11 col-sm-11 col-xs-11 cart-row" id="delete-{{$row['id']}}">
 					<table width="100%" cellpadding="0" cellspacing="0">
 						<tr>
 							<td>
@@ -44,9 +44,8 @@
 									<div class="plusminus-div">
 										<div class="plus-minus">
 
-											<!-- sending parameters to the below functions: decvtn and incbtn -->
+											<!-- sending parameters to the below JS functions respectively: decvtn and incbtn -->
 											<button onclick="decbtn('<?php echo $row['product']['id'] ?>','<?php echo $row['product']['price'] ?>')" id="minusBtn" class="minusBtn"><span>-</span></button>
-
 
 											<input readonly type="text" class="form-control noValue" id="{{$row['product']['id']}}" value="1">
 
@@ -54,13 +53,11 @@
 										</div>
 									</div>
 									<div id="finalPrice-<?php echo $row['product']['id'] ?>" class="price-kd price-kd-display">{{ $row['product']['price'] }} KWD
-
 									</div>
 
 									<div class="delete-div">
-										<a onclick="update()" class="remove-del-item" title="Remove Item From Cart">
-											<img src="{{asset('images/trash.svg')}}" alt="trash"></a>
-											<input type="hidden" id="product_id" value="{{$row->id}}">
+										<button onclick="update('<?php echo $row['id'] ?>')" class="remove-del-item" title="Remove Item From Cart" id="delete_id"><a>
+												<img src="{{asset('images/trash.svg')}}" alt="trash"></a></button>
 									</div>
 								</div>
 
@@ -76,19 +73,21 @@
 				<br>
 				@endif
 
+
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rd-point-total">
 					<div class="line-gold"></div>
 					<div class="form-group discount-cont discount-cont-inner">
-						<button class="button" onclick="coupon()">APPLY</button>
-						<label>Choose a coupon (if any):
-							<input list="dropdown" name="dropdown" /></label>
-						<datalist id="dropdown">
-							@foreach ($coupon as $row )
-							<option value="{{$row->code}}">
-								<input type="hidden" id="test-<?php echo $row->id ?>">
-								@endforeach
-
-						</datalist>
+						<!-- <button class="button">APPLY</button> -->
+						<label> Choose a coupon (if any):</label> <br><br>
+							<div class="form-group">
+								<select class="form-control" id="apply-coupon" style="width: 100%; text-align: center;" onclick="coupon()">
+									<option>Select Coupon</option>
+									@foreach($coupon as $row)
+									<option value="{{$row->id}}">
+										{{$row->code}}
+										@endforeach
+								</select>
+							</div>
 					</div>
 
 					<div class="row d-flex justify-content-center text-center shopping-cart-total-discount">
@@ -121,17 +120,12 @@
 						$discount= 0;
 						@endphp
 						<div class="col-6 col-lg-3 col-md-4">
-							@foreach ($coupon as $i => $row)
-							<h6>{{$row->amount}} KWD</h6>
-							@endforeach
+							<h6 style="display:inline" id="coupon-discount">0 </h6> <span> KWD </span>
 						</div>
 					</div>
 					<hr>
-					@php
-					$grandTotal= 0;
-					$grandTotal= $total-$discount;
-					@endphp
-					<div class="cart-row cart-total"> Grand Total : <span class="price-amt"> {{$grandTotal}} </span> KWD </div>
+
+					<div class="cart-row cart-total"> Sub Total : <span class="price-amt" id="sub-total"> {{$total}} </span> KWD </div>
 					<div class="cart-btn-div">
 						<a href="{{route('check_out')}}" class="black-button"> Check Out Now </a>
 					</div>
@@ -142,17 +136,21 @@
 </section>
 
 <script>
-	function update() {
-		var id = $("#finalPrice").val();
+	function update(delete_id) {
+		const ele = document.getElementById('delete-' + delete_id)
 		$.ajax({
-			url: "cartDestroy" + id,
-			type: 'get',
+			type: 'GET',
+			url: "{{route('cartDestroy')}}",
 			data: {
-				"id": id
+				id: delete_id
 			},
+			success: function(error) {
+				alert('item deleted');
+				ele.remove()
+			}
 		});
 	}
-
+	
 	function decbtn(productId, price) {
 
 		let val = $("#" + productId).val();
@@ -180,12 +178,36 @@
 		let tPrice = $('#total-price')
 		let newPrice = parseInt(tPrice.html()) + parseInt(givenPrice)
 		tPrice.html(newPrice + " KWD")
+
+		let couponDiscount = $('#coupon-discount').html()
+
+		let subTotalPrice = $('#sub-total')
+
+		subTotalPrice.html(newPrice - parseInt(couponDiscount))
+
+
 	}
 
-	function coupon(test) {
+	function coupon() {
+		let arr = <?php echo $coupon ?>;
 
-		let val = $("#" + test).val();
-		console.log(val)
+		let val = $("#apply-coupon").val();
 
+		let isfound = arr.filter(item => item.id === parseInt(val))
+
+		if (isfound) {
+			let couponDiscount = $('#coupon-discount');
+
+			let discount = couponDiscount.html(parseInt(isfound[0].amount))
+
+			let tPrice = $('#total-price')
+
+			let tempPrice = tPrice.html().replace("KWD","")
+
+			let subTotalPrice = $('#sub-total')
+
+			subTotalPrice.html(parseInt(tempPrice) - parseInt(isfound[0].amount))
+
+		}
 	}
 </script>

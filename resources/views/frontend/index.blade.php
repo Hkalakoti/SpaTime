@@ -1,14 +1,13 @@
 @extends('frontend.layout')
 
 <body>
-	@if ( $data->status == 1)
+	@if ($data->status == 1)
 	<section class="banner-main">
 		<div class="bxslider bxslider-mobile-hide">
 			<div>
 				<img src="{{asset(url('public/Image/'.$data->image))}}" class="img-fluid" alt="">
 				<div class="banner-text">
 					<h3> {{$data->name}} </h3>
-					<!-- <p> #Join our luxurious sanctuaries of health and wellness. Indulge in our spirit awakening rituals catered for your mind, body and soul. A serenity like no other. </p> -->
 					<p> {{$data->description}} </p>
 					<div class="banner-btns">
 						<a href="services-listing.html" class="rituals-btn black-button">View Rituals</a>
@@ -17,16 +16,10 @@
 				</div>
 			</div>
 		</div>
-
-
 	</section>
 	@endif
 
-
 	<section class="section services-main wow fadeInUp">
-		<!--<div class="prod-back-img">
-<img src="images/prod-banner.png" class="img-fluid" alt="Spa-Time">
-</div>-->
 		<div class="padding-left-right">
 			<div class="container text-center">
 				<div class="row wow fadeInUp">
@@ -240,7 +233,7 @@
 		<img src="images/spa-time-gift.png" class="img-fluid" alt="">
 	</section>
 
-
+	<!-- new arrival -->
 	<section class="section new-arrival-main wow fadeInUp">
 		<!--<div class="arrival-left"><img src="images/arrival-left.png" class="img-fluid" alt="Arrival"></div>-->
 		<div class="padding-left-right">
@@ -342,7 +335,7 @@
 		<!--<div class="arrival-right"><img src="images/arrival-right.png" class="img-fluid" alt="Arrival"></div>-->
 	</section>
 
-
+	<!-- location -->
 	<section class="section section-location wow fadeInUp">
 		<div class="padding-left-right">
 			<div class="container">
@@ -405,7 +398,7 @@
 		</div>
 	</section>
 
-
+	<!-- footer -->
 	<section class="footer-main wow fadeInUp">
 		<div class="padding-left-right">
 			<div class="container">
@@ -524,6 +517,7 @@
 	<!-- <div class="shape-quick-wrapper"></div>	 -->
 
 	<script src="js/jquery.bxslider.min.js"></script>
+
 	<script>
 		$(function() {
 			$('.bxslider').bxSlider({
@@ -598,7 +592,6 @@
 
 
 	<!-- BANNER -->
-
 	<script>
 		$('#buttonsearch').click(function() {
 			$('#formsearch').slideToggle("fast", function() {
@@ -620,6 +613,7 @@
 			});
 		});
 	</script>
+
 </body>
 
 </html>

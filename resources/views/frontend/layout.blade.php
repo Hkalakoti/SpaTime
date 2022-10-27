@@ -42,7 +42,6 @@
 </head>
 
 <body>
-
 	<header>
 		<div class="padding-left-right">
 			<div class="container-fluid">
@@ -70,18 +69,23 @@
 									</li>
 									<li><a href="{{route('category')}}" class="main-link">Our Products</a>
 										<ul class="wsmenu-submenu largemenu">
-		                     <li class="all-product-main"><a href="javascript:void(0)"><span>services-1</span></a></li>	 
-		                     <li class="all-product-main"><a href="javascript:void(0)"><span>services-2</span></a></li>
-		                     <li class="all-product-main"><a href="javascript:void(0)"><span>services-3</span></a></li>
-		                     <li class="all-product-main"><a href="javascript:void(0)"><span>services-4</span></a></li>
-		                  </ul>
+											<li class="all-product-main"><a href="javascript:void(0)"><span>services-1</span></a></li>
+											<li class="all-product-main"><a href="javascript:void(0)"><span>services-2</span></a></li>
+											<li class="all-product-main"><a href="javascript:void(0)"><span>services-3</span></a></li>
+											<li class="all-product-main"><a href="javascript:void(0)"><span>services-4</span></a></li>
+										</ul>
 									</li>
 									<li><a href="gifts-voucher.html" class="main-link">Gift Voucher</a></li>
 									<li><a href="{{route('contactUs')}}" class="main-link">Contact Us</a></li>
 									<li><a href="book-now.html" class="main-link main-link-book-now">Book Now</a></li>
 									<!--<li><a title="ع" href="javascript:void(0)" class="eng-arabic">ع</a></li>-->
-									<li class="mobile-link-hide"><a href="{{route('login')}}" class="user-link user-link-mobile"><img src="{{asset('images/icons/user.svg')}}" class="img-fluid login-user" alt="Login"></a></li>
-									<li class="mobile-link-hide"><a href="javascript:void(0);" class="main-link cart-link cart-link-mobile"><img src="{{asset('images/basket.png')}}" class="img-fluid basket-img" alt="Basket"></a>
+									<li class="mobile-link-hide"><a href="{{route('login')}}" class="user-link user-link-mobile">
+											<img src="{{asset('images/icons/user.svg')}}" class="img-fluid login-user" alt="Login"></a></li>
+
+									<li class="mobile-link-hide">
+										<div class="badge qty" id="count" onclick="count()" style="background-color: red; position:relative;">0</div>
+										<a href="javascript:void(0);" class="main-link cart-link cart-link-mobile">
+											<img src="{{asset('images/basket.png')}}" class="img-fluid basket-img" alt="Basket"></a>
 										<ul class="wsmenu-submenu wsmenu-cart-booking">
 											<li><a href="my-cart.html">Spa Booking</a></li>
 											<li><a href="{{route('cart')}}">Product Cart</a></li>
@@ -197,5 +201,6 @@
 			});
 		});
 	</script>
+	
 
 	@include('frontend.footer')

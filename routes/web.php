@@ -53,6 +53,7 @@ Route::get('/products/delete/{id}','App\Http\Controllers\ProductsController@dest
 // home and defaults
 Route::post('/signup','App\Http\Controllers\UserController@signup')->name('signup');
 
+
 // e-commerce
 
     // cart
@@ -66,7 +67,7 @@ Route::get('/contact-us','App\Http\Controllers\HomeController@contactUs')->name(
 Route::post('/contact-us','App\Http\Controllers\HomeController@contact_Us')->name('contact_us');
 
     // checkout
-Route::get('/Checkout','App\Http\Controllers\HomeController@checkout')->name('check_out');
+Route::get('/Checkout','App\Http\Controllers\CheckoutController@checkout')->name('check_out');
 
     // Services
 Route::get('/OurServices','App\Http\Controllers\OurServicesController@view')->name('OurServices');

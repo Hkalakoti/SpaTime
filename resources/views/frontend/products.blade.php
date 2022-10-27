@@ -27,22 +27,12 @@
                   <div class="gallery-large" data-src="" data-fancybox="gallery"><img src="{{url('public/Image/'.$data->image)}}" alt="gallery"></div>
                 </div>
               </div>
-              <div class="swiper-button-next gallery-button-next"></div>
-              <div class="swiper-button-prev gallery-button-prev"></div>
             </div>
+          
           </div>
-          <div class="gallery-thumnail-gallery">
-            <div class="thumnail-gallery">
-              <div class="swiper-container gallery-thumbs">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide"><img src="{{url('public/Image/'.$data->image)}}" alt="gallery"></div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-button-next thumbs-button-next"></div>
-            <div class="swiper-button-prev thumbs-button-prev"></div>
-          </div>
+          
         </div>
+
         <div class="col-lg-7 col-md-12 col-sm-12" id="info">
           <div class="product-description">
             <h2>{{$data->name}} by SPA TIME</h2>

@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Coupon;
-use App\Models\Price;
-use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -16,7 +14,7 @@ class CartController extends Controller
         $data = Cart::where('user_id', $id)
             ->with('product')
             ->get();
-        
+
         $coupon = Coupon::get();
 
         return view('frontend.shopping-cart', ['data' => $data],['coupon'=> $coupon]);
@@ -33,16 +31,10 @@ class CartController extends Controller
         return 'Added to cart';
     }
 
-    public function update(Request $request)
-    {   
-        $cart = session()->get('cart');
-        dd($cart);
-    }
-
     public function destroy(Request $request){
 
         Cart::find($request->id)->delete($request->id);
-        return back()->with('error','Item removed');
+        return redirect()->back()->with('error','Item removed');
     }
 
 }
