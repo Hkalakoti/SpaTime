@@ -83,7 +83,7 @@
 											<img src="{{asset('images/icons/user.svg')}}" class="img-fluid login-user" alt="Login"></a></li>
 
 									<li class="mobile-link-hide">
-										<div class="badge qty" id="count" onclick="count()" style="background-color: red; position:relative;">0</div>
+										<div class="badge qty" id="count" style="background-color: red; position:relative;">{{ request()->session()->get('key') }}</div>
 										<a href="javascript:void(0);" class="main-link cart-link cart-link-mobile">
 											<img src="{{asset('images/basket.png')}}" class="img-fluid basket-img" alt="Basket"></a>
 										<ul class="wsmenu-submenu wsmenu-cart-booking">
@@ -202,5 +202,4 @@
 		});
 	</script>
 	
-
 	@include('frontend.footer')

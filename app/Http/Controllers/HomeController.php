@@ -131,7 +131,10 @@ class HomeController extends Controller
         $cart = Cart:: get();
         $count = sizeof($cart);
 
-        return view('frontend.index', ['id' => $request->id, 'data' => $data, 'count' => $count]);
+        $request->session()->put('key', $count);
+
+
+        return view('frontend.index', ['id' => $request->id, 'data' => $data]);
     }
    
     public function ContactUs(Request $request)

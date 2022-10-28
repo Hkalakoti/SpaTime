@@ -79,15 +79,15 @@
 					<div class="form-group discount-cont discount-cont-inner">
 						<!-- <button class="button">APPLY</button> -->
 						<label> Choose a coupon (if any):</label> <br><br>
-							<div class="form-group">
-								<select class="form-control" id="apply-coupon" style="width: 100%; text-align: center;" onclick="coupon()">
-									<option>Select Coupon</option>
-									@foreach($coupon as $row)
-									<option value="{{$row->id}}">
-										{{$row->code}}
-										@endforeach
-								</select>
-							</div>
+						<div class="form-group">
+							<select class="form-control" id="apply-coupon" style="width: 100%; text-align: center;" onclick="coupon()">
+								<option>Select Coupon</option>
+								@foreach($coupon as $row)
+								<option value="{{$row->id}}">
+									{{$row->code}}
+									@endforeach
+							</select>
+						</div>
 					</div>
 
 					<div class="row d-flex justify-content-center text-center shopping-cart-total-discount">
@@ -127,7 +127,9 @@
 
 					<div class="cart-row cart-total"> Sub Total : <span class="price-amt" id="sub-total"> {{$total}} </span> KWD </div>
 					<div class="cart-btn-div">
-						<a href="{{route('check_out')}}" class="black-button"> Check Out Now </a>
+						<button>
+							<a href="{{route('check_out')}}" class="black-button"> Check Out Now </a>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -150,7 +152,7 @@
 			}
 		});
 	}
-	
+
 	function decbtn(productId, price) {
 
 		let val = $("#" + productId).val();
@@ -194,20 +196,51 @@
 		let val = $("#apply-coupon").val();
 
 		let isfound = arr.filter(item => item.id === parseInt(val))
+		// console.log(isfound[0].code)
 
 		if (isfound) {
 			let couponDiscount = $('#coupon-discount');
+			let couponCode = (isfound[0].code);
 
 			let discount = couponDiscount.html(parseInt(isfound[0].amount))
 
 			let tPrice = $('#total-price')
 
-			let tempPrice = tPrice.html().replace("KWD","")
+			let tempPrice = tPrice.html().replace("KWD", "")
 
 			let subTotalPrice = $('#sub-total')
 
 			subTotalPrice.html(parseInt(tempPrice) - parseInt(isfound[0].amount))
 
+			setCookie("sub-total",parseInt(tempPrice) - parseInt(isfound[0].amount))
+			setCookie('discount',parseInt(isfound[0].amount))
+			setCookie('couponCode', couponCode)
 		}
 	}
+
+		function setCookie(name, value, expires, path, domain, secure) {
+			cookieString = name + "=" + encodeURIComponent(value) + "; ";
+			if (expires) {
+				expires = setExpiration(expires);
+				cookieString += "expires=" + expires + "; ";
+			}
+			if (path) {
+				cookieString += "path=" + path + "; ";
+			}
+			if (domain) {
+				cookieString += "domain=" + domain + "; ";
+			}
+			if (secure) {
+				cookieString += "secure; ";
+			}
+			document.cookie = cookieString;
+		}
+
+		function setExpiration(days) {
+			var today = new Date();
+			var expires = new Date(today.getTime() + days * 24 * 60 * 60 * 1000);
+			return expires.toUTCString();
+		}
+		window.onload = setCookie("message", "hello", 1);
+
 </script>

@@ -37,4 +37,6 @@ class CartController extends Controller
         return redirect()->back()->with('error','Item removed');
     }
 
+    
+
 }

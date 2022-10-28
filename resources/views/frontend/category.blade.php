@@ -22,7 +22,7 @@
                             <div class="swiper-wrapper navigate text-center">
                                 @foreach ($data['category'] as $row)
                                 <div class="swiper-slide scrollmove">
-                                    <a href="#" onclick="handleCategoryProduct(<?php echo $row->id?>)" role="1" class="{{$row->id === 1 ? 'active' : '' }}"> {{$row->name}}</a>
+                                    <a href="javascript:void(0);"  role="1" class="{{$row->id === 1 ? 'active' : '' }}"> {{$row->name}}</a>
                                 </div>
                                 @endforeach
                             </div>
@@ -32,6 +32,7 @@
             </div>
         </div>
     </div>
+    <div>
     <div class="tabs-cont1" id="2">
         <div class="row d-flex justify-content-center text-center">
             <!-- @php $tempProducts = array_filter($data['product'],function ($var) { $var->category_id & 1 }) -->
@@ -70,5 +71,23 @@ function handleCategoryProduct(id) {
 console.log(filterProducts)
 
 }
+ 
+var roleId=1;
+$(document).ready(function(){
+	"use strict";
+	$('.navigate a').click(function(){
+		if(!$(this).hasClass('active')){
+			$('.navigate a').removeClass('active');
+			$('.tabs-cont1').find('#'+roleId).hide();
+			roleId = $(this).attr('role');
+			$('.tabs-cont1').find('#'+roleId).fadeIn(1000);
+			$(this).addClass('active');
+		}
+		else{
+			
+		}
+	});
+});
+
 
 </script>

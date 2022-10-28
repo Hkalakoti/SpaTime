@@ -31,7 +31,8 @@
 						<div class="subsnavi-container-main tabs wow fadeInDown" data-wow-delay="0.4s" data-wow-duration="1s">
 							<div class="subsNaviContainer swiper-container">
 								<div class="swiper-wrapper navigate text-center">
-									<div class="swiper-slide scrollmove"><a href="javascript:void(0);" role="1" class="active">Massages</a></div>
+									<div class="swiper-slide scrollmove">
+										<a href="javascript:void(0);" role="1" class="active">Massages</a></div>
 									<div class="swiper-slide scrollmove"><a href="javascript:void(0);" role="2">Facial</a></div>
 									<div class="swiper-slide scrollmove"><a href="javascript:void(0);" role="3">Body Treatments</a></div>
 									<div class="swiper-slide scrollmove"><a href="javascript:void(0);" role="4">Body Scrubs</a></div>

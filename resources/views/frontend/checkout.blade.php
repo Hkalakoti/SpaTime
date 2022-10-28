@@ -28,21 +28,21 @@
                                     <div class="coupon-div">
                                         <div class="coupon-left"><img src="{{asset('images/icon-percentage.png')}}" alt=""> Coupon Code / Voucher Code</div>
                                         <div class="coupon-right">
-                                            <input type="text" class="form-control" name="" id="" value="" disabled>
+                                            <input type="text" class="form-control" name="" id="" value="<?php echo $_COOKIE['couponCode']?>" disabled>
                                             <button class="button">Applied</button>
                                         </div>
                                     </div>
                                 </li>
                                 <li><label>Subtotal</label>
-                                    <div class="cart-amnt">112.00 KWD</div>
+                                    <div class="cart-amnt"><?php echo $_COOKIE['sub-total']?> KWD</div>
                                 </li>
                                 <li><label>
                                         <div class="coupon-code coupon-code-my-cart">Discount: </div>
                                     </label>
-                                    <div class="cart-amnt">-13.00 KWD</div>
+                                    <div class="cart-amnt">-<?php echo $_COOKIE['discount']?> KWD</div>
                                 </li>
                                 <li><label>Grand Total</label>
-                                    <div class="cart-amnt">99.000 KWD</div>
+                                    <div class="cart-amnt"><?php echo $_COOKIE['sub-total'] ?> KWD</div>
                                 </li>
                             </ul>
                             <hr>

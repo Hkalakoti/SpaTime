@@ -53,9 +53,7 @@ Route::get('/products/delete/{id}','App\Http\Controllers\ProductsController@dest
 // home and defaults
 Route::post('/signup','App\Http\Controllers\UserController@signup')->name('signup');
 
-
 // e-commerce
-
     // cart
 Route::get('/Shopping-cart','App\Http\Controllers\CartController@cart')->name('cart');
 Route::get('/addToCart','App\Http\Controllers\CartController@cartAdd')->name('cartAdd');
