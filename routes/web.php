@@ -57,7 +57,7 @@ Route::post('/signup','App\Http\Controllers\UserController@signup')->name('signu
     // cart
 Route::get('/Shopping-cart','App\Http\Controllers\CartController@cart')->name('cart');
 Route::get('/addToCart','App\Http\Controllers\CartController@cartAdd')->name('cartAdd');
-Route::get('/update-item/{id}','App\Http\Controllers\CartController@update')->name('cartUpdate');
+Route::get('/update-item','App\Http\Controllers\CartController@update')->name('cartUpdate');
 Route::get('/delete-item', 'App\Http\Controllers\CartController@destroy')->name('cartDestroy');
 
     // ContactUs
@@ -74,10 +74,16 @@ Route::get('/OurServices/Add','App\Http\Controllers\OurServicesController@add')-
     // coupons
 Route::get('/Coupon/Add','App\Http\Controllers\CouponController@add')->name('couponAdd');
 Route::post('/Coupon/Adding','App\Http\Controllers\CouponController@adding')->name('couponAdding');
-Route::get('/Coupon/Delete/{id}', 'App\Http\Controllers\CouponController@destroy')->name('couponDestroy');
+Route::get('/Coupon/Delete', 'App\Http\Controllers\CouponController@destroy')->name('couponDestroy');
 Route::get('/Coupon/Manage','App\Http\Controllers\CouponController@manage')->name('couponManage');
 Route::get('/Coupon/Edit/{id}','App\Http\Controllers\CouponController@edit')->name('couponEdit');
 Route::post('/Coupon/update','App\Http\Controllers\CouponController@update')->name('couponUpdate');
+Route::get('/Coupon/Apply','App\Http\Controllers\CouponController@applyCoupon')->name('applyCoupon');
+
+// payment
+Route::get('/payment','App\Http\Controllers\PaymentController@payment')->name('payment');
+Route::get('/callback','App\Http\Controllers\PaymentController@callback')->name('callback');
+
 
 // data table
 Route::get('/users', [UserController::class, 'index'])->name('users.index');

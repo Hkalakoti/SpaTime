@@ -1,6 +1,5 @@
 @extends('frontend.layout')
 @include('flash-messages')
-
 <section class="breadcrumb-inner breadcrumb-inner-page">
   <div class="padding-left-right">
     <div class="container-fluid">
@@ -54,8 +53,8 @@
               </a>
             </div>
             <div class="cart-buy-btns">
-              <button class="button detail-addtocart w-153" onclick="cart()">
-                <a>Add to Cart</a>
+              <button class="button detail-addtocart w-153" >
+                <a href="{{route('cartAdd',['id' => $data->id])}}">Add to Cart</a>
               </button>
 
               <!-- !important -->
@@ -77,17 +76,17 @@
 <script src="{{asset('https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js')}}"></script>
 
 <script>
-  function cart() {
-    var id = $('#product_id').val();
-    $.ajax({
-      url: "{{ route('cartAdd')}}",
-      data: {
-        "id": id
-      },
-      type: 'get',
-      success: function(result) {
-        alert(result);
-      }
-    });
-  }
+  // function cart() {
+  //   var id = $('#product_id').val();
+  //   $.ajax({
+  //     url: "{{ route('cartAdd')}}",
+  //     data: {
+  //       "id": id
+  //     },
+  //     type: 'get',
+  //     success: function(result) {
+  //       alert(result);
+  //     }
+  //   });
+  // }
 </script>

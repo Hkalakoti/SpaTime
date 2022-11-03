@@ -61,7 +61,12 @@ class CouponController extends Controller
     public function destroy($id)
     {
       Coupon:: find($id)->delete($id);
+      return back()->with('error','Item deleted Successfully');
+    }
 
-       return back()->with('error','Item deleted Successfully');
+    public function applyCoupon(Request $request)
+    {
+        dd($request->all());
+
     }
 }

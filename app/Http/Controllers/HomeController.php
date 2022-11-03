@@ -127,12 +127,14 @@ class HomeController extends Controller
     public function home(Request $request)
     {
         $data = [];
+        $id = auth()->user()->id;
         $data = Banner::where('status', '=', 1)->first();
-        $cart = Cart:: get();
+        $cart = Cart:: where('user_id', $id)
+                       ->get();
+
         $count = sizeof($cart);
 
         $request->session()->put('key', $count);
-
 
         return view('frontend.index', ['id' => $request->id, 'data' => $data]);
     }

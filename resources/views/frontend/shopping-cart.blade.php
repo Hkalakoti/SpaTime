@@ -1,5 +1,5 @@
 @extends('frontend.layout')
-
+@include('flash-messages')
 <section class="breadcrumb-inner breadcrumb-inner-page">
 	<div class="padding-left-right">
 		<div class="container-fluid">
@@ -11,7 +11,6 @@
 	</div>
 </section>
 
-@include('flash-messages')
 <section class="services-listing details-page">
 	<div class="container text-center">
 		<h1 class="wow fadeInDown" data-wow-delay="0.2s" data-wow-duration="1.5s">Shopping Cart</h1>
@@ -28,51 +27,49 @@
 					</div>
 				</div>
 				@if(count($data) > 0)
-				@foreach ($data as $row)
-				<div class="col-lg-12 col-md-11 col-sm-11 col-xs-11 cart-row" id="delete-{{$row['id']}}">
+				@php
+				$total = 0;
+				@endphp
+				@foreach($data as $id => $row)
+				@php
+				$total += $row['product']['price'] * $row['quantity'];
+				@endphp
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cart-row">
 					<table width="100%" cellpadding="0" cellspacing="0">
-						<tr>
-							<td>
-								<div class="cart-des">
-									<a href="{{ url('public/Image/'.$row['product']['image']) }}" data-fancybox="images" class="cart-img">
-										<img src="{{ url('public/Image/'.$row['product']['image']) }}" alt="SPA-TIME" />
-									</a>
-									<div class="item-title-cart">{{$row['product']['name']}}</div>
-								</div>
+						<tbody>
+							<tr>
+								<td>
+									<div class="cart-des">
+										<a href="{{ url('public/Image/'.$row['product']['image']) }}" data-fancybox="images" class="cart-img"><img src="{{ url('public/Image/'.$row['product']['image']) }}" alt="SPA-TIME">
+										</a>
+										<div class="item-title-cart">{{$row['product']['name']}}</div>
 
-								<div class="cart-qnty-price">
-									<div class="plusminus-div">
-										<div class="plus-minus">
-
-											<!-- sending parameters to the below JS functions respectively: decvtn and incbtn -->
-											<button onclick="decbtn('<?php echo $row['product']['id'] ?>','<?php echo $row['product']['price'] ?>')" id="minusBtn" class="minusBtn"><span>-</span></button>
-
-											<input readonly type="text" class="form-control noValue" id="{{$row['product']['id']}}" value="1">
-
-											<button onclick="incbtn('<?php echo $row['product']['id'] ?>','<?php echo $row['product']['price'] ?>')" id="plusBtn" class="plusBtn"><span>+</span></button>
+									</div>
+									<div class="cart-qnty-price">
+										<div class="plusminus-div">
+											<div class="plus-minus">
+												<a onclick="update(<?php echo $row['id'] ?>,<?php echo $row['quantity'] - 1 ?>)" class="minusBtn"><span>-</span></a>
+												<input type="text" class="form-control noValue" value="{{$row['quantity']}}">
+												<a onclick="update(<?php echo $row['id'] ?>,<?php echo $row['quantity'] + 1 ?>)" class="plusBtn"><span>+</span></a>
+											</div>
 										</div>
+										<div class="price-kd price-kd-display">{{$row['product']['price']}} KWD </div>
+										<div class="delete-div">
+											<a id="delete" class="remove-del-item" title="Remove Item From Cart"><img src="images/trash.svg" alt="trash"></a>
+										</div>
+										<input type="hidden" id="delete-id" value="{{$row['id']}}">
 									</div>
-									<div id="finalPrice-<?php echo $row['product']['id'] ?>" class="price-kd price-kd-display">{{ $row['product']['price'] }} KWD
-									</div>
-
-									<div class="delete-div">
-										<button onclick="update('<?php echo $row['id'] ?>')" class="remove-del-item" title="Remove Item From Cart" id="delete_id"><a>
-												<img src="{{asset('images/trash.svg')}}" alt="trash"></a></button>
-									</div>
-								</div>
-
-							</td>
-						</tr>
+								</td>
+							</tr>
+						</tbody>
 					</table>
 				</div>
-
 				@endforeach
 				@else
 				<br>
 				<h6 style="margin-left: 45%;"> Your cart is empty </h6>
 				<br>
 				@endif
-
 
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rd-point-total">
 					<div class="line-gold"></div>
@@ -81,9 +78,9 @@
 						<label> Choose a coupon (if any):</label> <br><br>
 						<div class="form-group">
 							<select class="form-control" id="apply-coupon" style="width: 100%; text-align: center;" onclick="coupon()">
-								<option>Select Coupon</option>
+								<option selected>Select Coupon</option>
 								@foreach($coupon as $row)
-								<option value="{{$row->id}}">
+								<option id="coupon_id" value="{{$row->id}}">
 									{{$row->code}}
 									@endforeach
 							</select>
@@ -97,37 +94,27 @@
 						</div>
 
 						<div class="col-6 col-lg-3 col-md-4">
-
-							@php
-							$total = 0
-							@endphp
-
-							@foreach ($data as $row )
-							@php
-							$total += $row['product']['price']
-
-							@endphp
-							@endforeach
 							<h6 id="total-price"> {{ $total }} <?php echo "KWD" ?> </h6>
 						</div>
 					</div>
-
 					<div class="row d-flex justify-content-center text-center shopping-cart-total-discount">
 						<div class="col-6 col-lg-3 col-md-8">
 							<h5>Coupon Discount</h5>
 						</div>
-						@php
-						$discount= 0;
-						@endphp
+
 						<div class="col-6 col-lg-3 col-md-4">
-							<h6 style="display:inline" id="coupon-discount">0 </h6> <span> KWD </span>
+							<h6 style="display:inline" id="coupon-discount"> 0 </h6> <span> KWD </span>
 						</div>
 					</div>
 					<hr>
-
-					<div class="cart-row cart-total"> Sub Total : <span class="price-amt" id="sub-total"> {{$total}} </span> KWD </div>
+					@foreach ($data as $row )
+					@php
+					$subTotal = $row['product']['price'] * $row['quantity'];
+					@endphp
+					@endforeach
+					<div class="cart-row cart-total"> Sub Total : {{ $subTotal }} KWD </div>
 					<div class="cart-btn-div">
-						<button>
+						<button onclick="apply()">
 							<a href="{{route('check_out')}}" class="black-button"> Check Out Now </a>
 						</button>
 					</div>
@@ -138,109 +125,60 @@
 </section>
 
 <script>
-	function update(delete_id) {
-		const ele = document.getElementById('delete-' + delete_id)
+	$("#delete").click(function(e) {
+		e.preventDefault();
+
+		var ele = $(this);
+		var del_id = $('#delete-id').val()
+		console.log(del_id)
+
+		if (confirm("Are you sure want to remove?")) {
+			$.ajax({
+				url: "{{ route('cartDestroy') }}",
+				method: "GET",
+				data: {
+					_token: '{{ csrf_token() }}',
+					id: del_id
+				},
+				success: function(response) {
+					window.location.reload();
+				}
+			});
+		}
+	});
+
+	function update(id, quantity) {
+		console.log(id, quantity)
 		$.ajax({
-			type: 'GET',
-			url: "{{route('cartDestroy')}}",
+			url: "{{ route('cartUpdate') }}",
+			method: "GET",
 			data: {
-				id: delete_id
+				_token: '{{ csrf_token() }}',
+				id: id,
+				quantity: quantity
 			},
-			success: function(error) {
-				alert('item deleted');
-				ele.remove()
+			success: function(response) {
+				window.location.reload();
 			}
 		});
 	}
 
-	function decbtn(productId, price) {
-
-		let val = $("#" + productId).val();
-		if (val <= 1) {
-			val = 1;
-		} else {
-			val = val - 1;
-			handleTotalPrice(-price)
-		}
-		const currentPrice = price * val;
-		$("#finalPrice-" + productId).html(currentPrice + ' KWD');
-	}
-
-	function incbtn(productId, price) {
-		let val = $("#" + productId).val();
-
-		val = parseInt(val) + 1;
-		const currentPrice = price * val;
-
-		$("#finalPrice-" + productId).html(currentPrice + ' KWD');
-		handleTotalPrice(price)
-	}
-
-	function handleTotalPrice(givenPrice) {
-		let tPrice = $('#total-price')
-		let newPrice = parseInt(tPrice.html()) + parseInt(givenPrice)
-		tPrice.html(newPrice + " KWD")
-
-		let couponDiscount = $('#coupon-discount').html()
-
-		let subTotalPrice = $('#sub-total')
-
-		subTotalPrice.html(newPrice - parseInt(couponDiscount))
-
-
-	}
-
 	function coupon() {
-		let arr = <?php echo $coupon ?>;
-
+		let arr = <?php echo $coupon ?>; //should be defined globally
 		let val = $("#apply-coupon").val();
+		console.log(val)
 
 		let isfound = arr.filter(item => item.id === parseInt(val))
-		// console.log(isfound[0].code)
 
 		if (isfound) {
 			let couponDiscount = $('#coupon-discount');
-			let couponCode = (isfound[0].code);
-
 			let discount = couponDiscount.html(parseInt(isfound[0].amount))
-
 			let tPrice = $('#total-price')
-
 			let tempPrice = tPrice.html().replace("KWD", "")
-
 			let subTotalPrice = $('#sub-total')
 
 			subTotalPrice.html(parseInt(tempPrice) - parseInt(isfound[0].amount))
 
-			setCookie("sub-total",parseInt(tempPrice) - parseInt(isfound[0].amount))
-			setCookie('discount',parseInt(isfound[0].amount))
-			setCookie('couponCode', couponCode)
 		}
 	}
-
-		function setCookie(name, value, expires, path, domain, secure) {
-			cookieString = name + "=" + encodeURIComponent(value) + "; ";
-			if (expires) {
-				expires = setExpiration(expires);
-				cookieString += "expires=" + expires + "; ";
-			}
-			if (path) {
-				cookieString += "path=" + path + "; ";
-			}
-			if (domain) {
-				cookieString += "domain=" + domain + "; ";
-			}
-			if (secure) {
-				cookieString += "secure; ";
-			}
-			document.cookie = cookieString;
-		}
-
-		function setExpiration(days) {
-			var today = new Date();
-			var expires = new Date(today.getTime() + days * 24 * 60 * 60 * 1000);
-			return expires.toUTCString();
-		}
-		window.onload = setCookie("message", "hello", 1);
-
 </script>

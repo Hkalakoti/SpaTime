@@ -18,8 +18,6 @@
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
 
 @include('flash-messages')
-
-
                     <div class="cart-row-divider">
                         <h4 class="cart-summary-cart">Cart Summary</h4>
                         <div class="cart-summary">
@@ -28,21 +26,21 @@
                                     <div class="coupon-div">
                                         <div class="coupon-left"><img src="{{asset('images/icon-percentage.png')}}" alt=""> Coupon Code / Voucher Code</div>
                                         <div class="coupon-right">
-                                            <input type="text" class="form-control" name="" id="" value="<?php echo $_COOKIE['couponCode']?>" disabled>
+                                            <input type="text" class="form-control" name="" id="" value="" disabled>
                                             <button class="button">Applied</button>
                                         </div>
                                     </div>
                                 </li>
                                 <li><label>Subtotal</label>
-                                    <div class="cart-amnt"><?php echo $_COOKIE['sub-total']?> KWD</div>
+                                    <div class="cart-amnt"> KWD</div>
                                 </li>
                                 <li><label>
                                         <div class="coupon-code coupon-code-my-cart">Discount: </div>
                                     </label>
-                                    <div class="cart-amnt">-<?php echo $_COOKIE['discount']?> KWD</div>
+                                    <div class="cart-amnt"> KWD</div>
                                 </li>
                                 <li><label>Grand Total</label>
-                                    <div class="cart-amnt"><?php echo $_COOKIE['sub-total'] ?> KWD</div>
+                                    <div class="cart-amnt"> KWD</div>
                                 </li>
                             </ul>
                             <hr>
@@ -87,6 +85,10 @@
                         </div>
 
                         <div class="cart-btn-div">
+                        <a href="{{route('payment')}}" class="btn btn-success"> Knet</a>
+                        </div>
+
+                        <div class="cart-btn-div">
                             <a href="confirmation.html" class="black-button">Pay Now</a>
                         </div>
 
@@ -97,7 +99,6 @@
 
 
                 </div>
-
 
             </div>
         </div>
