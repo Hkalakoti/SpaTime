@@ -14,10 +14,8 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', 'App\Http\Controllers\HomeController@home')->name('home');
 Route::get('/home','App\Http\Controllers\HomeController@index')->name('index');
-
 
 Auth::routes();
 
@@ -41,7 +39,7 @@ Route::post('/Category/update','App\Http\Controllers\CategoryController@update')
 Route::get('/Category/delete/{id}','App\Http\Controllers\CategoryController@destroy')->name('categoryDestroy');
 
 // products
-Route::get('/test/{id}','App\Http\Controllers\ProductsController@products')->name('productsID');
+Route::get('/product/{id}','App\Http\Controllers\ProductsController@products')->name('productsID');
 Route::get('/products/Add','App\Http\Controllers\ProductsController@add')->name('productsAdd');
 Route::post('/products/Adding','App\Http\Controllers\ProductsController@adding')->name('productsAdding'); 
 Route::get('/products/manage','App\Http\Controllers\ProductsController@Manage')->name('productsManage');
@@ -66,6 +64,7 @@ Route::post('/contact-us','App\Http\Controllers\HomeController@contact_Us')->nam
 
     // checkout
 Route::get('/Checkout','App\Http\Controllers\CheckoutController@checkout')->name('check_out');
+Route::get('/test','App\Http\Controllers\CheckoutController@test')->name('test');
 
     // Services
 Route::get('/OurServices','App\Http\Controllers\OurServicesController@view')->name('OurServices');
@@ -83,6 +82,9 @@ Route::get('/Coupon/Apply','App\Http\Controllers\CouponController@applyCoupon')-
 // payment
 Route::get('/payment','App\Http\Controllers\PaymentController@payment')->name('payment');
 Route::get('/callback','App\Http\Controllers\PaymentController@callback')->name('callback');
+
+// confirmation
+Route::get('/Confirmation','App\Http\Controllers\ConfirmationController@confirmation')->name('confirmation');
 
 
 // data table

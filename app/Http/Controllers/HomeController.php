@@ -98,7 +98,6 @@ class HomeController extends Controller
         $dataPacket['status'] = $request->status;
 
         //img upload fn
-
         if ($request->file('image')) {
             $file = $request->file('image');
             $filename = date('YmdH') . $file->getClientOriginalName();
@@ -131,9 +130,7 @@ class HomeController extends Controller
         $data = Banner::where('status', '=', 1)->first();
         $cart = Cart:: where('user_id', $id)
                        ->get();
-
         $count = sizeof($cart);
-
         $request->session()->put('key', $count);
 
         return view('frontend.index', ['id' => $request->id, 'data' => $data]);

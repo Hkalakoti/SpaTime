@@ -42,17 +42,21 @@ class CartController extends Controller
     public function update(Request $request)
     {
         $id = auth()->user()->id;
-        $data = Cart::where('user_id', $id)->first();
+        $data = Cart::where('user_id', $id)->where('id', $request->id)->first();
 
-        dd($data);
-        if(isset($request->id) === $data['product_id']) {
+
+        if ($request->quantity == 0) {
+            exit;
+        }else{
+        if(isset($request->id)) {
                 if ($request->quantity < $data['quantity']) {
-                    $data['quantity'] = $request->quantity ;
+                    $data['quantity'] = $request->quantity;
                 }else{
-                $data['quantity'] = $request->quantity ;
+                $data['quantity'] = $request->quantity;
             }
                 $new = Cart:: where('id', $data->id)->update(['quantity' => $data['quantity']]);
-            }         
+            } 
+        }        
         return redirect()->back()->with('success','Cart updated');
     }
 
